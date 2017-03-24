@@ -7,26 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D3821DC1E85A90E00B84B8A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3821DB1E85A90E00B84B8A /* SignupViewController.swift */; };
+		9D3821DE1E85B0F900B84B8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D3821DD1E85B0F900B84B8A /* GoogleService-Info.plist */; };
 		9D385DD71E85A501007FA76D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D385DD61E85A501007FA76D /* AppDelegate.swift */; };
-		9D385DD91E85A501007FA76D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D385DD81E85A501007FA76D /* ViewController.swift */; };
 		9D385DDC1E85A501007FA76D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D385DDA1E85A501007FA76D /* Main.storyboard */; };
 		9D385DDE1E85A501007FA76D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D385DDD1E85A501007FA76D /* Assets.xcassets */; };
 		9D385DE11E85A501007FA76D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D385DDF1E85A501007FA76D /* LaunchScreen.storyboard */; };
-		9D385DE91E85A589007FA76D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D385DE81E85A589007FA76D /* GoogleService-Info.plist */; };
 		CA8277604C7C470B24F91D4B /* Pods_FireCMS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DEF58A9A808FB2854DBF36D /* Pods_FireCMS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0DEF58A9A808FB2854DBF36D /* Pods_FireCMS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireCMS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19C2198C9E1E2B354A3EC379 /* Pods-FireCMS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireCMS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FireCMS/Pods-FireCMS.debug.xcconfig"; sourceTree = "<group>"; };
+		9D3821DB1E85A90E00B84B8A /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		9D3821DD1E85B0F900B84B8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9D385DD31E85A501007FA76D /* FireCMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireCMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D385DD61E85A501007FA76D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9D385DD81E85A501007FA76D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9D385DDB1E85A501007FA76D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D385DDD1E85A501007FA76D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D385DE01E85A501007FA76D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D385DE21E85A501007FA76D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D385DE81E85A589007FA76D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D6770283AA9D35BF97741B28 /* Pods-FireCMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireCMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireCMS/Pods-FireCMS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,11 +81,11 @@
 			isa = PBXGroup;
 			children = (
 				9D385DD61E85A501007FA76D /* AppDelegate.swift */,
-				9D385DD81E85A501007FA76D /* ViewController.swift */,
+				9D3821DB1E85A90E00B84B8A /* SignupViewController.swift */,
 				9D385DDA1E85A501007FA76D /* Main.storyboard */,
 				9D385DDD1E85A501007FA76D /* Assets.xcassets */,
 				9D385DDF1E85A501007FA76D /* LaunchScreen.storyboard */,
-				9D385DE81E85A589007FA76D /* GoogleService-Info.plist */,
+				9D3821DD1E85B0F900B84B8A /* GoogleService-Info.plist */,
 				9D385DE21E85A501007FA76D /* Info.plist */,
 			);
 			path = FireCMS;
@@ -155,7 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D385DE11E85A501007FA76D /* LaunchScreen.storyboard in Resources */,
-				9D385DE91E85A589007FA76D /* GoogleService-Info.plist in Resources */,
+				9D3821DE1E85B0F900B84B8A /* GoogleService-Info.plist in Resources */,
 				9D385DDE1E85A501007FA76D /* Assets.xcassets in Resources */,
 				9D385DDC1E85A501007FA76D /* Main.storyboard in Resources */,
 			);
@@ -216,7 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D385DD91E85A501007FA76D /* ViewController.swift in Sources */,
+				9D3821DC1E85A90E00B84B8A /* SignupViewController.swift in Sources */,
 				9D385DD71E85A501007FA76D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +383,7 @@
 				9D385DE71E85A501007FA76D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
