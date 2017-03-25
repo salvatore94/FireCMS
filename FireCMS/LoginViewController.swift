@@ -34,11 +34,17 @@ class LoginViewController: UIViewController {
                 let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
                     print("ok")
                 })
+            
                 alertVC.addAction(okButton)
                 self.present(alertVC, animated: true, completion: nil)
                 return
             }
             
+            let ref = FIRDatabase.database().reference()
+            let nodo_utenti = ref.child("utenti")
+            let values = ["email" :  email]
+            
+            nodo_utenti.setValue(values)
             
             print("\n Welcome \(user!.email!)")
         })
