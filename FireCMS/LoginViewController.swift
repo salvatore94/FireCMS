@@ -69,12 +69,8 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            let alertVC = UIAlertController(title: "Successo", message: "Login", preferredStyle: UIAlertControllerStyle.alert)
-            let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
-                print("ok")
-            })
-            alertVC.addAction(okButton)
-            self.present(alertVC, animated: true, completion: nil)
+    
+            self.performSegue(withIdentifier: "afterLogin", sender: self)
             
         }
     }

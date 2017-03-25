@@ -1,0 +1,6 @@
+framework module Pods_FireCMS {
+  umbrella header "Pods-FireCMS-umbrella.h"
+
+  export *
+  module * { export * }
+}
