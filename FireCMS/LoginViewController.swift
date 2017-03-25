@@ -7,29 +7,71 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var passwortTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+    }
+    @IBAction func register(_ sender: Any) {
+        guard let email = emailTextField.text else {
+            return
+        }
+        guard let password = passwortTextField.text else {
+            return
+        }
+        
+        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
+            guard error == nil else {
+                let alertVC = UIAlertController(title: "Errore", message: "Riempire i campi di testo!", preferredStyle: UIAlertControllerStyle.alert)
+                let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+                    print("ok")
+                })
+                alertVC.addAction(okButton)
+                self.present(alertVC, animated: true, completion: nil)
+                return
+            }
+            
+            
+            print("\n Welcome \(user!.email!)")
+        })
+        
 
-        // Do any additional setup after loading the view.
+    }
+    @IBAction func login(_ sender: Any) {
+        guard let email = emailTextField.text else {
+            return
+        }
+        guard let password = passwortTextField.text else {
+            return
+        }
+        FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+            guard error == nil else {
+                let alertVC = UIAlertController(title: "Errore", message: "Errore di login", preferredStyle: UIAlertControllerStyle.alert)
+                let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+                    print("ok")
+                })
+                alertVC.addAction(okButton)
+                self.present(alertVC, animated: true, completion: nil)
+                return
+            }
+            
+            let alertVC = UIAlertController(title: "Successo", message: "Login", preferredStyle: UIAlertControllerStyle.alert)
+            let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+                print("ok")
+            })
+            alertVC.addAction(okButton)
+            self.present(alertVC, animated: true, completion: nil)
+            
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
