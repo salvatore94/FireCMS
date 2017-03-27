@@ -69,8 +69,14 @@ class LoginViewController: UIViewController {
                 return
             }
             
-    
-            self.performSegue(withIdentifier: "afterLogin", sender: self)
+            //se Chair
+            self.performSegue(withIdentifier: "ChairMainView", sender: self)
+            
+            //se Autore
+            //self.performSegue(withIdentifier: "AutoreMainView", sender: self)
+            
+            //se Recensore
+            //self.performSegue(withIdentifier: "RecensoerMainView", sender: self)
             
         }
     }
