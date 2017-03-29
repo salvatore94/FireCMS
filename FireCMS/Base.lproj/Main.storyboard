@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -117,7 +118,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QWK-u1-Jge" id="6n2-YE-SjI">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -146,7 +147,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ijs-W4-fDn" id="os4-0N-uiB">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -328,14 +329,120 @@
                     <connections>
                         <outlet property="emailTextField" destination="2jF-yo-Vt8" id="7Y9-V4-zeq"/>
                         <outlet property="passwortTextField" destination="XVp-ls-a8R" id="GHf-VC-nW1"/>
-                        <segue destination="l9L-au-9E5" kind="show" identifier="ChairMainView" id="Ky1-Bg-Vot"/>
-                        <segue destination="mE4-SW-WX0" kind="show" identifier="AutoreMainView" id="Kkc-lt-v7K"/>
-                        <segue destination="l7J-Oh-C0l" kind="show" identifier="RecensoerMainView" id="qDV-BB-RnN"/>
+                        <segue destination="BOK-I6-1EY" kind="show" identifier="SceltaConferenza" id="E8k-om-gNv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RXO-8h-Lnp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3861" y="-664"/>
+            <point key="canvasLocation" x="-5301" y="-664"/>
+        </scene>
+        <!--Scelta Conferenza View Controller-->
+        <scene sceneID="flL-fS-tYw">
+            <objects>
+                <viewController id="BOK-I6-1EY" customClass="SceltaConferenzaViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y2d-6I-Y28"/>
+                        <viewControllerLayoutGuide type="bottom" id="SWS-TR-eWr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bXD-Jr-555">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register_background" translatesAutoresizingMaskIntoConstraints="NO" id="W2i-ii-oQg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <button opaque="NO" alpha="0.40000000596046448" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7z-mG-2vr">
+                                <rect key="frame" x="162" y="477" width="140" height="35"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="gmM-Ib-LCh"/>
+                                    <constraint firstAttribute="height" constant="35" id="hVY-Nm-Fur"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                <state key="normal" title="Crea Nuova">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="creaNuovaConferenzaAction:" destination="BOK-I6-1EY" eventType="touchUpInside" id="eWj-xo-uhG"/>
+                                    <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="teA-42-E3U"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.40000000596046448" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzR-um-VyW">
+                                <rect key="frame" x="10" y="115" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="f50-JD-GnK"/>
+                                    <constraint firstAttribute="height" constant="40" id="o4F-8L-wtA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="coR-ca-Exu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.40000000596046448" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Upt-6h-mfq">
+                                <rect key="frame" x="10" y="174" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0JS-Rk-KQv"/>
+                                    <constraint firstAttribute="width" constant="300" id="S3d-DV-e4p"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="1Qs-IL-EJY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mzR-um-VyW" firstAttribute="top" secondItem="y2d-6I-Y28" secondAttribute="bottom" constant="95" id="0XZ-3Z-TDc"/>
+                            <constraint firstItem="U7z-mG-2vr" firstAttribute="leading" secondItem="bXD-Jr-555" secondAttribute="leadingMargin" constant="146" id="6bK-6f-1LA"/>
+                            <constraint firstItem="W2i-ii-oQg" firstAttribute="width" secondItem="bXD-Jr-555" secondAttribute="width" id="9rt-Rk-rH4"/>
+                            <constraint firstItem="Upt-6h-mfq" firstAttribute="centerX" secondItem="bXD-Jr-555" secondAttribute="centerX" id="FLG-gE-aRf"/>
+                            <constraint firstItem="mzR-um-VyW" firstAttribute="centerX" secondItem="bXD-Jr-555" secondAttribute="centerX" id="Icd-go-vrt"/>
+                            <constraint firstItem="W2i-ii-oQg" firstAttribute="height" secondItem="bXD-Jr-555" secondAttribute="height" id="QNr-WN-14k"/>
+                            <constraint firstItem="Upt-6h-mfq" firstAttribute="top" secondItem="mzR-um-VyW" secondAttribute="bottom" constant="19" id="SPs-Db-iyX"/>
+                            <constraint firstItem="W2i-ii-oQg" firstAttribute="centerY" secondItem="bXD-Jr-555" secondAttribute="centerY" id="eWK-aF-TEa"/>
+                            <constraint firstItem="W2i-ii-oQg" firstAttribute="centerX" secondItem="bXD-Jr-555" secondAttribute="centerX" id="jwB-rR-l1B"/>
+                            <constraint firstItem="SWS-TR-eWr" firstAttribute="top" secondItem="U7z-mG-2vr" secondAttribute="bottom" constant="56" id="rjT-rx-xVK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="conferenza1" destination="mzR-um-VyW" id="vCE-jy-jFg"/>
+                        <outlet property="conferenza1Action" destination="mzR-um-VyW" id="ebQ-T5-xuT"/>
+                        <outlet property="conferenza2" destination="Upt-6h-mfq" id="H48-fQ-HcP"/>
+                        <outlet property="conferenza2Action" destination="Upt-6h-mfq" id="vng-nX-CFh"/>
+                        <segue destination="mE4-SW-WX0" kind="show" identifier="AutoreMainView" id="ovP-QH-Hhv"/>
+                        <segue destination="l9L-au-9E5" kind="show" identifier="ChairMainView" id="bCB-gj-LTV"/>
+                        <segue destination="l7J-Oh-C0l" kind="show" identifier="RecensoerMainView" id="IAD-qL-HZT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Dh-Q3-C0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3890.625" y="-664.43661971830988"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="dcY-1q-tko">
@@ -494,7 +601,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URh-s8-74Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3863" y="298"/>
+            <point key="canvasLocation" x="-5303" y="357"/>
         </scene>
         <!--Sottometti Rivisto-->
         <scene sceneID="glH-Fx-QBB">
@@ -528,7 +635,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vva-Bs-uJ1" id="gDu-yT-xcT">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -576,7 +683,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WGa-9p-fFL" id="faE-Vv-FjD">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

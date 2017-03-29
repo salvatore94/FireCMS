@@ -10,10 +10,15 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
+var utente = UserClass()
+
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var passwortTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    
+    
+    var handle : FIRAuthStateDidChangeListenerHandle? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,8 +74,8 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            //se Chair
-            self.performSegue(withIdentifier: "ChairMainView", sender: self)
+                        
+            self.performSegue(withIdentifier: "SceltaConferenza", sender: self)
             
             //se Autore
             //self.performSegue(withIdentifier: "AutoreMainView", sender: self)
