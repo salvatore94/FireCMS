@@ -19,6 +19,8 @@
 		9D385DDE1E85A501007FA76D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D385DDD1E85A501007FA76D /* Assets.xcassets */; };
 		9D385DE11E85A501007FA76D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D385DDF1E85A501007FA76D /* LaunchScreen.storyboard */; };
 		9D3D47331E86CB3D00B85B89 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D47321E86CB3D00B85B89 /* RegisterViewController.swift */; };
+		9DEFC2FE1E8E9C5600BFDA42 /* CreaConferenzaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEFC2FD1E8E9C5600BFDA42 /* CreaConferenzaViewController.swift */; };
+		9DEFC3001E8E9CB900BFDA42 /* ConferenzaClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEFC2FF1E8E9CB900BFDA42 /* ConferenzaClass.swift */; };
 		CA8277604C7C470B24F91D4B /* Pods_FireCMS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DEF58A9A808FB2854DBF36D /* Pods_FireCMS.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		9D385DE01E85A501007FA76D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D385DE21E85A501007FA76D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D3D47321E86CB3D00B85B89 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		9DEFC2FD1E8E9C5600BFDA42 /* CreaConferenzaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreaConferenzaViewController.swift; sourceTree = "<group>"; };
+		9DEFC2FF1E8E9CB900BFDA42 /* ConferenzaClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenzaClass.swift; sourceTree = "<group>"; };
 		D6770283AA9D35BF97741B28 /* Pods-FireCMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireCMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireCMS/Pods-FireCMS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,8 +101,10 @@
 				9D2915271E89B51900C170B8 /* CustomPaddedLabel.swift */,
 				9D2915291E8BAD2300C170B8 /* SceltaConferenzaViewController.swift */,
 				9D29152B1E8BAE9600C170B8 /* UserClass.swift */,
+				9DEFC2FF1E8E9CB900BFDA42 /* ConferenzaClass.swift */,
 				9D2915251E8982BF00C170B8 /* Chair_ArticoliTableViewController.swift */,
 				9D29151F1E867E9600C170B8 /* LoginViewController.swift */,
+				9DEFC2FD1E8E9C5600BFDA42 /* CreaConferenzaViewController.swift */,
 				9D3D47321E86CB3D00B85B89 /* RegisterViewController.swift */,
 				9D385DDA1E85A501007FA76D /* Main.storyboard */,
 				9D385DDD1E85A501007FA76D /* Assets.xcassets */,
@@ -239,10 +245,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D29152A1E8BAD2300C170B8 /* SceltaConferenzaViewController.swift in Sources */,
+				9DEFC3001E8E9CB900BFDA42 /* ConferenzaClass.swift in Sources */,
 				9D3D47331E86CB3D00B85B89 /* RegisterViewController.swift in Sources */,
 				9D2915201E867E9600C170B8 /* LoginViewController.swift in Sources */,
 				9D2915261E8982BF00C170B8 /* Chair_ArticoliTableViewController.swift in Sources */,
 				9D2915281E89B51900C170B8 /* CustomPaddedLabel.swift in Sources */,
+				9DEFC2FE1E8E9C5600BFDA42 /* CreaConferenzaViewController.swift in Sources */,
 				9D2915241E89734F00C170B8 /* UserInfoViewController.swift in Sources */,
 				9D385DD71E85A501007FA76D /* AppDelegate.swift in Sources */,
 				9D29152C1E8BAE9600C170B8 /* UserClass.swift in Sources */,

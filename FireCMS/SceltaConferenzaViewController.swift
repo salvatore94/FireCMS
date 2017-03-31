@@ -44,6 +44,7 @@ class SceltaConferenzaViewController: UIViewController {
             }) { (error) in
                 print(error.localizedDescription)
             }
+        conferenza1.setTitle(utente.getListaConferenze()[1], for: .normal)
     }
     
 

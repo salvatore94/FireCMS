@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dAl-op-Zs6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dAl-op-Zs6">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -371,6 +371,10 @@
                                 <connections>
                                     <action selector="creaNuovaConferenzaAction:" destination="BOK-I6-1EY" eventType="touchUpInside" id="eWj-xo-uhG"/>
                                     <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="teA-42-E3U"/>
+                                    <segue destination="GNe-Pw-lYH" kind="show" id="mWL-Ie-fiR">
+                                        <segue key="commit" inheritsFrom="parent" id="gnV-VV-mHh"/>
+                                        <segue key="preview" inheritsFrom="commit" id="kUg-vK-kQI"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.40000000596046448" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzR-um-VyW">
@@ -603,6 +607,158 @@
             </objects>
             <point key="canvasLocation" x="-5303" y="357"/>
         </scene>
+        <!--Crea Conferenza View Controller-->
+        <scene sceneID="mtd-eb-ECv">
+            <objects>
+                <viewController id="GNe-Pw-lYH" customClass="CreaConferenzaViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f7h-xW-H7y"/>
+                        <viewControllerLayoutGuide type="bottom" id="MMd-Pn-L4I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lke-57-9pA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register_background" translatesAutoresizingMaskIntoConstraints="NO" id="ypu-t0-8ze">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Data Fine" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l08-9h-T4A" userLabel="Fine">
+                                <rect key="frame" x="10" y="267" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Lkd-Ia-i30"/>
+                                    <constraint firstAttribute="width" constant="300" id="WVg-Eg-r1p"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardAppearance="alert" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Data di Inizio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sGo-g0-H9u" userLabel="Inizio">
+                                <rect key="frame" x="10" y="219" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="ECu-DX-5Jh"/>
+                                    <constraint firstAttribute="height" constant="40" id="S0j-vg-Cbe"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardAppearance="alert" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="luogo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gUO-Or-huk" userLabel="Luogo">
+                                <rect key="frame" x="10" y="171" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="AUw-T3-TmS"/>
+                                    <constraint firstAttribute="width" constant="300" id="kPe-Y8-y6J"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardAppearance="alert" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome Conferenza" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="msx-fz-31y" userLabel="Nome">
+                                <rect key="frame" x="10" y="75" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8sp-MH-KQq"/>
+                                    <constraint firstAttribute="width" constant="300" id="ZX2-le-Zj5"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardAppearance="alert" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tema" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OeY-jt-rWb">
+                                <rect key="frame" x="10" y="123" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="2H1-Rl-Nv8"/>
+                                    <constraint firstAttribute="height" constant="40" id="AOw-Sr-YFY"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardAppearance="alert" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" alpha="0.40000000596046448" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpC-H3-6Bt">
+                                <rect key="frame" x="90" y="489" width="140" height="35"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="Jnz-A8-IUZ"/>
+                                    <constraint firstAttribute="height" constant="35" id="b8N-k9-k9I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                <state key="normal" title="Crea">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="creaAction:" destination="GNe-Pw-lYH" eventType="touchUpInside" id="3ci-ru-8sB"/>
+                                    <action selector="creaNuovaConferenzaAction:" destination="BOK-I6-1EY" eventType="touchUpInside" id="HRF-nd-Ajb"/>
+                                    <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="kua-JI-1z9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OeY-jt-rWb" firstAttribute="centerX" secondItem="Lke-57-9pA" secondAttribute="centerX" id="0bS-cp-rsG"/>
+                            <constraint firstItem="gUO-Or-huk" firstAttribute="centerX" secondItem="Lke-57-9pA" secondAttribute="centerX" id="3wg-oX-ofA"/>
+                            <constraint firstItem="ypu-t0-8ze" firstAttribute="centerX" secondItem="Lke-57-9pA" secondAttribute="centerX" id="8th-pi-u6s"/>
+                            <constraint firstItem="ypu-t0-8ze" firstAttribute="centerY" secondItem="Lke-57-9pA" secondAttribute="centerY" id="AKV-aR-zzs"/>
+                            <constraint firstItem="MMd-Pn-L4I" firstAttribute="top" secondItem="tpC-H3-6Bt" secondAttribute="bottom" constant="44" id="AjH-sg-vbS"/>
+                            <constraint firstItem="l08-9h-T4A" firstAttribute="top" secondItem="sGo-g0-H9u" secondAttribute="bottom" constant="8" id="EJx-9y-xNG"/>
+                            <constraint firstItem="sGo-g0-H9u" firstAttribute="centerX" secondItem="Lke-57-9pA" secondAttribute="centerX" id="Pc3-K7-pVp"/>
+                            <constraint firstItem="ypu-t0-8ze" firstAttribute="width" secondItem="Lke-57-9pA" secondAttribute="width" id="UuC-rL-ZOT"/>
+                            <constraint firstItem="l08-9h-T4A" firstAttribute="centerX" secondItem="Lke-57-9pA" secondAttribute="centerX" id="Y0x-F7-bTB"/>
+                            <constraint firstItem="tpC-H3-6Bt" firstAttribute="centerX" secondItem="Lke-57-9pA" secondAttribute="centerX" id="Z69-Lt-SvJ"/>
+                            <constraint firstItem="gUO-Or-huk" firstAttribute="top" secondItem="OeY-jt-rWb" secondAttribute="bottom" constant="8" id="Zbs-3R-U0y"/>
+                            <constraint firstItem="ypu-t0-8ze" firstAttribute="height" secondItem="Lke-57-9pA" secondAttribute="height" id="hjh-0Y-Mrt"/>
+                            <constraint firstItem="OeY-jt-rWb" firstAttribute="top" secondItem="msx-fz-31y" secondAttribute="bottom" constant="8" id="hkg-fa-Oph"/>
+                            <constraint firstItem="msx-fz-31y" firstAttribute="centerX" secondItem="Lke-57-9pA" secondAttribute="centerX" id="kXL-Fm-uIk"/>
+                            <constraint firstItem="sGo-g0-H9u" firstAttribute="top" secondItem="gUO-Or-huk" secondAttribute="bottom" constant="8" id="nn6-JM-Gtl"/>
+                            <constraint firstItem="msx-fz-31y" firstAttribute="top" secondItem="f7h-xW-H7y" secondAttribute="bottom" constant="55" id="yN3-3k-8mi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fineField" destination="l08-9h-T4A" id="wG2-mw-YzD"/>
+                        <outlet property="inizioField" destination="sGo-g0-H9u" id="UQ4-4Z-8aw"/>
+                        <outlet property="luogoField" destination="gUO-Or-huk" id="Js5-ZQ-yhE"/>
+                        <outlet property="nomeField" destination="msx-fz-31y" id="9PG-jy-ger"/>
+                        <outlet property="temaField" destination="OeY-jt-rWb" id="r3g-Id-V5e"/>
+                        <segue destination="BOK-I6-1EY" kind="presentation" identifier="SceltaConferenzaDaCrea" id="qtc-ey-gbS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zu2-Uh-Tah" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3926" y="356"/>
+        </scene>
         <!--Sottometti Rivisto-->
         <scene sceneID="glH-Fx-QBB">
             <objects>
@@ -764,6 +920,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xNW-rN-hsq"/>
+        <segue reference="qtc-ey-gbS"/>
+        <segue reference="mWL-Ie-fiR"/>
         <segue reference="zAD-A0-6OJ"/>
     </inferredMetricsTieBreakers>
 </document>
