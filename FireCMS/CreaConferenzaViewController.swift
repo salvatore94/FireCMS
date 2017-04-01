@@ -53,7 +53,7 @@ class CreaConferenzaViewController: UIViewController {
         
         let nodo = ref.child("conferenze")
         
-        let values = ["NomeConferenza" : conferenza.getNomeConferenza(), "TemaConferenza" : conferenza.getTemaConferenza(), "LuogoConferenza" : conferenza.getLuogoConferenza(), "DataInizio" : conferenza.getInizioConferenza(), "DataFine" : conferenza.getFineConferenza()]
+        let values = ["NomeConferenza" : conferenza.getNomeConferenza(), "TemaConferenza" : conferenza.getTemaConferenza(), "LuogoConferenza" : conferenza.getLuogoConferenza(), "DataInizio" : conferenza.getInizioConferenza(), "DataFine" : conferenza.getFineConferenza(), "ChairUid" : conferenza.getChairUid()]
         
         let key = nodo.childByAutoId().key
         nodo.child(key).setValue(values)

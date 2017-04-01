@@ -10,6 +10,7 @@ import Foundation
 
 class ConferenzaClass {
     private var uid : String
+    private var chairUid : String
     private var nome : String
     private var tema : String
     private var luogo : String
@@ -18,6 +19,7 @@ class ConferenzaClass {
     
     init() {
         uid = ""
+        chairUid = ""
         nome = ""
         tema = ""
         luogo = ""
@@ -27,11 +29,20 @@ class ConferenzaClass {
     
     init(_nome: String, _tema: String, _luogo: String, _inizio: String, _fine: String) {
         uid = ""
+        chairUid = ""
         nome = _nome
         tema = _tema
         luogo = _luogo
         inizio = _inizio
         fine = _fine
+    }
+    
+    func setChairUid(_chairUid: String) -> Void {
+        chairUid = _chairUid
+    }
+    
+    func getChairUid() -> String {
+        return chairUid
     }
     
     func setUid(_uid: String){

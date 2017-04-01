@@ -78,13 +78,7 @@ class LoginViewController: UIViewController {
             
                         
             self.performSegue(withIdentifier: "SceltaConferenza", sender: self)
-            
-            //se Autore
-            //self.performSegue(withIdentifier: "AutoreMainView", sender: self)
-            
-            //se Recensore
-            //self.performSegue(withIdentifier: "RecensoerMainView", sender: self)
-            
+                        
         }
     }
 

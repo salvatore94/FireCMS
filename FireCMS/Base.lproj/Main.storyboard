@@ -371,7 +371,7 @@
                                 <connections>
                                     <action selector="creaNuovaConferenzaAction:" destination="BOK-I6-1EY" eventType="touchUpInside" id="eWj-xo-uhG"/>
                                     <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="teA-42-E3U"/>
-                                    <segue destination="GNe-Pw-lYH" kind="show" id="mWL-Ie-fiR">
+                                    <segue destination="GNe-Pw-lYH" kind="show" identifier="CreaNuovaConferenza" id="mWL-Ie-fiR">
                                         <segue key="commit" inheritsFrom="parent" id="gnV-VV-mHh"/>
                                         <segue key="preview" inheritsFrom="commit" id="kUg-vK-kQI"/>
                                     </segue>
@@ -395,6 +395,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="conferenza1Action:" destination="BOK-I6-1EY" eventType="touchUpInside" id="81z-6w-lzQ"/>
                                     <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="coR-ca-Exu"/>
                                 </connections>
                             </button>
@@ -416,6 +417,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="conferenza2Action:" destination="BOK-I6-1EY" eventType="touchUpInside" id="Xng-gS-5YU"/>
                                     <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="1Qs-IL-EJY"/>
                                 </connections>
                             </button>
@@ -436,12 +438,10 @@
                     </view>
                     <connections>
                         <outlet property="conferenza1" destination="mzR-um-VyW" id="vCE-jy-jFg"/>
-                        <outlet property="conferenza1Action" destination="mzR-um-VyW" id="ebQ-T5-xuT"/>
                         <outlet property="conferenza2" destination="Upt-6h-mfq" id="H48-fQ-HcP"/>
-                        <outlet property="conferenza2Action" destination="Upt-6h-mfq" id="vng-nX-CFh"/>
                         <segue destination="mE4-SW-WX0" kind="show" identifier="AutoreMainView" id="ovP-QH-Hhv"/>
                         <segue destination="l9L-au-9E5" kind="show" identifier="ChairMainView" id="bCB-gj-LTV"/>
-                        <segue destination="l7J-Oh-C0l" kind="show" identifier="RecensoerMainView" id="IAD-qL-HZT"/>
+                        <segue destination="l7J-Oh-C0l" kind="show" identifier="RecensoreMainView" id="IAD-qL-HZT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Dh-Q3-C0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -922,6 +922,6 @@
         <segue reference="xNW-rN-hsq"/>
         <segue reference="qtc-ey-gbS"/>
         <segue reference="mWL-Ie-fiR"/>
-        <segue reference="zAD-A0-6OJ"/>
+        <segue reference="Qkn-Rc-pZe"/>
     </inferredMetricsTieBreakers>
 </document>

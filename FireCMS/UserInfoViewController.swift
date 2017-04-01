@@ -16,9 +16,6 @@ class UserInfoViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     
-    var handle : FIRAuthStateDidChangeListenerHandle? = nil
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +26,7 @@ class UserInfoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        handle = (FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
-            let ref = FIRDatabase.database().reference()
-            ref.child("utenti").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            FIRDatabase.database().reference().child("utenti").child(FIRAuth.auth()!.currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
                 let value = snapshot.value as? NSDictionary
                 let nome = value?["nome"] as? String ?? ""
@@ -44,15 +39,6 @@ class UserInfoViewController: UIViewController {
                 }) { (error) in
                     print(error.localizedDescription)
                 }
-
-            })!
- 
-        
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        FIRAuth.auth()?.removeStateDidChangeListener(handle!)
     }
 
 }
