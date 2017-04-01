@@ -25,29 +25,29 @@ class SceltaConferenzaViewController: UIViewController {
         super.viewWillAppear(animated)
         conferenza1.isEnabled = false
         conferenza2.isEnabled = false
-            let ref = FIRDatabase.database().reference()
-            utente.setUid(_uid: (FIRAuth.auth()!.currentUser!.uid))
-                
-            ref.child("utenti").child(FIRAuth.auth()!.currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                let value = snapshot.value as? NSDictionary
-                
-                usleep(5000000)
-                utente.setNome(_nome: (value?["nome"] as! String ))
-                utente.setCognome(_cognome: (value?["cognome"] as! String))
-                utente.setEmail(_email: (value?["email"] as! String))
-                
-                //let dd = ["1" : "test", "2" : "test2"]
-                // ref.child("utenti").child(user!.uid).child("conferenza").setValue(dd)
-                utente.setConferenze(_conf: value?["conferenza"] as! [String])
-                
-                print(utente.getListaConferenze())
-            }) { (error) in
-                print(error.localizedDescription)
-            }
-        conferenza1.setTitle(utente.getListaConferenze()[1], for: .normal)
+        
+        var lista = populateConferencesButton()
+        
+        
+        //conferenza1.setTitle(utente.getListaConferenze()[1], for: .normal)
     }
     
 
+    func populateConferencesButton() -> [ConferenzaClass] {
+        var lista = [ConferenzaClass] ()
+        for conference in utente.getListaConferenze() {
+            FIRDatabase.database().reference().child("conferenze").child(conference).observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as! NSDictionary
+                
+                let title = value["NomeConferenza"] as! String
+                self.conferenza1.setTitle(title, for: .normal)
+                
+                var conf = ConferenzaClass(_nome: value["NomeConferenza"] as! String, _tema: value["TemaConferenza"] as! String, _luogo: value["LuogoConferenza"] as! String, _inizio: value["DataInizio"] as! String, _fine: value["DataFine"] as! String)
+                lista.append(conf)
+            })
+        }
+        return lista
+    }
     
     //secondo bottone
     @IBOutlet weak var conferenza2Action: UIButton!

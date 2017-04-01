@@ -11,6 +11,8 @@ import Firebase
 import FirebaseAuth
 
 var utente = UserClass()
+var conferenza = ConferenzaClass()
+
 
 class LoginViewController: UIViewController {
 
@@ -86,5 +88,24 @@ class LoginViewController: UIViewController {
         }
     }
 
-    
+    func popolateUserAccount() -> Void {
+        FIRDatabase.database().reference().child("utenti").child(FIRAuth.auth()!.currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            
+            usleep(5000000)
+            utente.setNome(_nome: (value?["nome"] as! String ))
+            utente.setCognome(_cognome: (value?["cognome"] as! String))
+            utente.setEmail(_email: (value?["email"] as! String))
+            
+            //let dd = ["1" : "test", "2" : "test2"]
+            // ref.child("utenti").child(user!.uid).child("conferenza").setValue(dd)
+            utente.setConferenze(_conf: value?["conferenza"] as! [String])
+            
+
+            print(utente.getListaConferenze())
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+
+    }
 }

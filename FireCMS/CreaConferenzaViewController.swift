@@ -44,13 +44,22 @@ class CreaConferenzaViewController: UIViewController {
             return
         }
         
-        let conferenza = ConferenzaClass(_nome: nome, _tema: tema, _luogo: luogo, _inizio: inizio, _fine: fine)
+        conferenza.setNomeConferenza(_nome: nome)
+        conferenza.setTemaConferenza(_tema: tema)
+        conferenza.setLuogoConferenza(_luogo: luogo)
+        conferenza.setInizioConferenza(_inizio: inizio)
+        conferenza.setFineConferenza(_fine: fine)
+        
         
         let nodo = ref.child("conferenze")
         
         let values = ["NomeConferenza" : conferenza.getNomeConferenza(), "TemaConferenza" : conferenza.getTemaConferenza(), "LuogoConferenza" : conferenza.getLuogoConferenza(), "DataInizio" : conferenza.getInizioConferenza(), "DataFine" : conferenza.getFineConferenza()]
         
-        nodo.setValue(values)
+        let key = nodo.childByAutoId().key
+        nodo.child(key).setValue(values)
+        
+        print(key)
+        utente.addConferenza(_toAdd: key)
         
         performSegue(withIdentifier: "SceltaConferenzaDaCrea", sender: self)
     }

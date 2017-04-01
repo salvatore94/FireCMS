@@ -9,19 +9,33 @@
 import Foundation
 
 class ConferenzaClass {
+    private var uid : String
     private var nome : String
     private var tema : String
     private var luogo : String
     private var inizio : String
     private var fine : String
     
+    init() {
+        uid = ""
+        nome = ""
+        tema = ""
+        luogo = ""
+        inizio = ""
+        fine = ""
+    }
     
     init(_nome: String, _tema: String, _luogo: String, _inizio: String, _fine: String) {
+        uid = ""
         nome = _nome
         tema = _tema
         luogo = _luogo
         inizio = _inizio
         fine = _fine
+    }
+    
+    func setUid(_uid: String){
+        uid = _uid
     }
     
     func setNomeConferenza(_nome: String) -> Void {
@@ -42,6 +56,10 @@ class ConferenzaClass {
     
     func setFineConferenza(_fine: String) -> Void {
         fine = _fine
+    }
+    
+    func getUid() -> String {
+        return uid
     }
     
     func getNomeConferenza() -> String {
