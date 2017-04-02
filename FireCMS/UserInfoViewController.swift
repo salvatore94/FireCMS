@@ -15,30 +15,39 @@ class UserInfoViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var chiudiButton: UIButton!
     
+    var nome : String?
+    var email : String?
+    var close = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nomeLabel.text = nome
+        emailLabel.text = email
         
-        // Do any additional setup after loading the view.
+        if close == true {
+            chiudiButton.isHidden = false
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-            FIRDatabase.database().reference().child("utenti").child(FIRAuth.auth()!.currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                // Get user value
-                let value = snapshot.value as? NSDictionary
-                let nome = value?["nome"] as? String ?? ""
-                let cognome = value?["cognome"] as? String ?? ""
-                let email = value?["email"] as? String ?? ""
-                
-                self.nomeLabel.text = nome + " " + cognome
-                self.emailLabel.text = email
-
-                }) { (error) in
-                    print(error.localizedDescription)
-                }
+    }
+    
+    public func setNomeLabel(_nome: String) -> Void {
+        nome = _nome
+    }
+    
+    public func setEmailLabel(_email: String) -> Void {
+        email = _email
     }
 
+    public func enableChiudi() -> Void {
+        close = true
+    }
+    
+    @IBAction func chiudiAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

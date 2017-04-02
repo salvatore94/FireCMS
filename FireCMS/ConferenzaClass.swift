@@ -16,6 +16,9 @@ class ConferenzaClass {
     private var luogo : String
     private var inizio : String
     private var fine : String
+    private var scadenzaSottomissione : String
+    private var scadenzaReview : String
+    private var scadenzaRivisti : String
     
     init() {
         uid = ""
@@ -25,6 +28,10 @@ class ConferenzaClass {
         luogo = ""
         inizio = ""
         fine = ""
+        
+        scadenzaSottomissione = ""
+        scadenzaReview = ""
+        scadenzaRivisti = ""
     }
     
     init(_nome: String, _tema: String, _luogo: String, _inizio: String, _fine: String) {
@@ -35,19 +42,20 @@ class ConferenzaClass {
         luogo = _luogo
         inizio = _inizio
         fine = _fine
+        
+        scadenzaSottomissione = ""
+        scadenzaReview = ""
+        scadenzaRivisti = ""
+    }
+    
+    func setUid(_uid: String){
+        uid = _uid
     }
     
     func setChairUid(_chairUid: String) -> Void {
         chairUid = _chairUid
     }
     
-    func getChairUid() -> String {
-        return chairUid
-    }
-    
-    func setUid(_uid: String){
-        uid = _uid
-    }
     
     func setNomeConferenza(_nome: String) -> Void {
         nome = _nome
@@ -69,8 +77,24 @@ class ConferenzaClass {
         fine = _fine
     }
     
+    func setScadenzaSottomissione(_scadenzaSottomissione : String) -> Void {
+        scadenzaSottomissione = _scadenzaSottomissione
+    }
+    
+    func setScadenzaReview (_scadenzaReview : String) -> Void {
+        scadenzaReview = _scadenzaReview
+    }
+    
+    func setScadenzaRivisti (_scadenzaRivisti : String) -> Void {
+        scadenzaRivisti = _scadenzaRivisti
+    }
+    
     func getUid() -> String {
         return uid
+    }
+    
+    func getChairUid() -> String {
+        return chairUid
     }
     
     func getNomeConferenza() -> String {
@@ -91,5 +115,17 @@ class ConferenzaClass {
     
     func getFineConferenza() -> String {
         return fine
+    }
+    
+    func getScadenzaSottomissione() -> String {
+        return scadenzaSottomissione
+    }
+    
+    func getScadenzaReview() -> String {
+        return scadenzaReview
+    }
+    
+    func getscadenzaRivisti() -> String {
+        return scadenzaRivisti
     }
 }
