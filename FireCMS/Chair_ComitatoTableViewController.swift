@@ -14,6 +14,7 @@ var comitato = [UserClass]()
 class Chair_ComitatoTableViewController: UITableViewController {
 
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +27,18 @@ class Chair_ComitatoTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         comitato = popolaComitato()
+        
+        //set up background
+        let backgroundImage = UIImage(named: "register_background.png")
+        let imageView = UIImageView(image: backgroundImage)
+        imageView.contentMode = .scaleAspectFit
+        self.tableView.backgroundView = imageView
+        
+        
+        
+        // no lines where there aren't cells
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -36,13 +49,17 @@ class Chair_ComitatoTableViewController: UITableViewController {
         return comitato.count
     }
 
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ComitatoCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ComitatoCell", for: indexPath) as! CustomTableViewCell
         
         let nome = comitato[indexPath.row].getNome() + " " + comitato[indexPath.row].getCognome()
         
-        cell.textLabel?.text = nome
+        cell.cellLabel?.text = nome
+    
         return cell
     }
     
