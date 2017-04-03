@@ -25,22 +25,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FireCMS/SceltaConferenzaViewController.swift"
-            timestampString = "512825080.476386"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "populateConferencesButton()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "FireCMS/ConferenzaClass.swift"
             timestampString = "512825080.476386"
             startingColumnNumber = "9223372036854775807"
@@ -58,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FireCMS/Chair_ComitatoTableViewController.swift"
-            timestampString = "512844042.979415"
+            timestampString = "512902428.987509"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -81,6 +65,54 @@
             endingLineNumber = "53"
             landmarkName = "tableView(_:willDisplay:forRowAt:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FireCMS/SceltaConferenzaViewController.swift"
+            timestampString = "512918516.434949"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "populateConferencesArray()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FireCMS.SceltaConferenzaViewController.populateConferencesArray () -&gt; Swift.Array&lt;FireCMS.ConferenzaClass&gt;"
+                  moduleName = "FireCMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/salvatore/Desktop/Progetti%20Xcode/FireCMS/FireCMS/SceltaConferenzaViewController.swift"
+                  timestampString = "512918516.809169"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "343">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FireCMS.SceltaConferenzaViewController.(populateConferencesArray () -&gt; Swift.Array&lt;FireCMS.ConferenzaClass&gt;).(closure #1)"
+                  moduleName = "FireCMS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/salvatore/Desktop/Progetti%20Xcode/FireCMS/FireCMS/SceltaConferenzaViewController.swift"
+                  timestampString = "512918516.810811"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

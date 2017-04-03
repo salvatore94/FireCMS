@@ -49,7 +49,7 @@ class CreaConferenzaViewController: UIViewController {
         conferenza.setLuogoConferenza(_luogo: luogo)
         conferenza.setInizioConferenza(_inizio: inizio)
         conferenza.setFineConferenza(_fine: fine)
-        
+        conferenza.setChairUid(_chairUid: (FIRAuth.auth()?.currentUser?.uid)!)
         
         let nodo = ref.child("conferenze")
         
@@ -60,6 +60,8 @@ class CreaConferenzaViewController: UIViewController {
         
         print(key)
         utente.addConferenza(_toAdd: key)
+        FIRDatabase.database().reference().child("utenti").child((FIRAuth.auth()?.currentUser?.uid)!).child("conferenza").setValue(utente.getListaConferenze() as [String])
+        
         
         performSegue(withIdentifier: "SceltaConferenzaDaCrea", sender: self)
     }

@@ -34,9 +34,9 @@ class ConferenzaClass {
         scadenzaRivisti = ""
     }
     
-    init(_nome: String, _tema: String, _luogo: String, _inizio: String, _fine: String) {
-        uid = ""
-        chairUid = ""
+    init(_uid: String, _nome: String, _tema: String, _luogo: String, _chairUid: String, _inizio: String, _fine: String) {
+        uid = _uid
+        chairUid = _chairUid
         nome = _nome
         tema = _tema
         luogo = _luogo

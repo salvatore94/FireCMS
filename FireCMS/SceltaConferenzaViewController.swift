@@ -14,48 +14,57 @@ class SceltaConferenzaViewController: UIViewController {
     @IBOutlet weak var conferenza1: UIButton!
     @IBOutlet weak var conferenza2: UIButton!
 
+
     var lista = [ConferenzaClass]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        conferenza1.isEnabled = false
-        conferenza2.isEnabled = false
         
-        lista = populateConferencesButton()
-        
-        conferenza1.setTitle(lista[1].getNomeConferenza(), for: .normal)
-        conferenza2.setTitle(lista[2].getNomeConferenza(), for: .normal)
+        lista = populateConferencesArray()
 
     }
     
 
-    func populateConferencesButton() -> [ConferenzaClass] {
-        var lista = [ConferenzaClass] ()
+    func populateConferencesArray() -> [ConferenzaClass] {
+        var lista = [ConferenzaClass]()
         for conference in utente.getListaConferenze() {
             FIRDatabase.database().reference().child("conferenze").child(conference).observeSingleEvent(of: .value, with: { (snapshot) in
-                let value = snapshot.value as! NSDictionary
+                if let value = snapshot.value as? NSDictionary {
                 
-                let title = value["NomeConferenza"] as! String
-                self.conferenza1.setTitle(title, for: .normal)
-                
-                var conf = ConferenzaClass(_nome: value["NomeConferenza"] as! String, _tema: value["TemaConferenza"] as! String, _luogo: value["LuogoConferenza"] as! String, _inizio: value["DataInizio"] as! String, _fine: value["DataFine"] as! String)
-                conf.setChairUid(_chairUid: value["ChairUid"] as! String)
+                    let conf = ConferenzaClass(_uid: conference, _nome: value["NomeConferenza"] as! String, _tema: value["TemaConferenza"] as! String, _luogo: value["LuogoConferenza"] as! String, _chairUid: value["ChairUid"] as! String, _inizio: value["DataInizio"] as! String, _fine: value["DataFine"] as! String)
                 
                 lista.append(conf)
-            }) { (error) in
-                print(error.localizedDescription)
-            }
-
+                print(conf.getUid())
+                self.presentButton(_conf: conf)
+                }
+                
+            })
         }
         return lista
     }
+    
+    func presentButton(_conf: ConferenzaClass) {
+        conferenza1.setTitle(_conf.getNomeConferenza(), for: .normal)
+    }
+    
     @IBAction func conferenza1Action(_ sender: Any) {
+        conferenza.setUid(_uid: lista[0].getUid())
+        conferenza.setNomeConferenza(_nome: lista[0].getNomeConferenza())
+        conferenza.setTemaConferenza(_tema: lista[0].getTemaConferenza())
+        conferenza.setLuogoConferenza(_luogo: lista[0].getLuogoConferenza())
+        conferenza.setInizioConferenza(_inizio: lista[0].getInizioConferenza())
+        conferenza.setFineConferenza(_fine: lista[0].getFineConferenza())
+        conferenza.setChairUid(_chairUid: lista[0].getChairUid())
+        
+        definisciRuolo()
+    }
+    
+    @IBAction func conferenza2Action(_ sender: Any) {
         conferenza.setUid(_uid: lista[1].getUid())
         conferenza.setNomeConferenza(_nome: lista[1].getNomeConferenza())
         conferenza.setTemaConferenza(_tema: lista[1].getTemaConferenza())
@@ -63,16 +72,8 @@ class SceltaConferenzaViewController: UIViewController {
         conferenza.setInizioConferenza(_inizio: lista[1].getInizioConferenza())
         conferenza.setFineConferenza(_fine: lista[1].getFineConferenza())
         conferenza.setChairUid(_chairUid: lista[1].getChairUid())
-    }
-    
-    @IBAction func conferenza2Action(_ sender: Any) {
-        conferenza.setUid(_uid: lista[2].getUid())
-        conferenza.setNomeConferenza(_nome: lista[2].getNomeConferenza())
-        conferenza.setTemaConferenza(_tema: lista[2].getTemaConferenza())
-        conferenza.setLuogoConferenza(_luogo: lista[2].getLuogoConferenza())
-        conferenza.setInizioConferenza(_inizio: lista[2].getInizioConferenza())
-        conferenza.setFineConferenza(_fine: lista[2].getFineConferenza())
-        conferenza.setChairUid(_chairUid: lista[2].getChairUid())
+        
+        definisciRuolo()
     }
     
     //creaNuovaConferenza
@@ -119,7 +120,5 @@ class SceltaConferenzaViewController: UIViewController {
             print(error.localizedDescription)
         }
 
-        
-        
     }
 }
