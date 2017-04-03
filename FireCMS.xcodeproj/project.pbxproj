@@ -23,6 +23,7 @@
 		9DEFC3001E8E9CB900BFDA42 /* ConferenzaClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEFC2FF1E8E9CB900BFDA42 /* ConferenzaClass.swift */; };
 		9DEFC3031E90F87900BFDA42 /* Chair_ComitatoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEFC3021E90F87900BFDA42 /* Chair_ComitatoTableViewController.swift */; };
 		9DEFC3081E915D4600BFDA42 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEFC3071E915D4600BFDA42 /* CustomTableViewCell.swift */; };
+		9DEFC30A1E92885800BFDA42 /* SceltaConferenzaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEFC3091E92885700BFDA42 /* SceltaConferenzaTableViewController.swift */; };
 		CA8277604C7C470B24F91D4B /* Pods_FireCMS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DEF58A9A808FB2854DBF36D /* Pods_FireCMS.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		9DEFC2FF1E8E9CB900BFDA42 /* ConferenzaClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenzaClass.swift; sourceTree = "<group>"; };
 		9DEFC3021E90F87900BFDA42 /* Chair_ComitatoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chair_ComitatoTableViewController.swift; sourceTree = "<group>"; };
 		9DEFC3071E915D4600BFDA42 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		9DEFC3091E92885700BFDA42 /* SceltaConferenzaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceltaConferenzaTableViewController.swift; sourceTree = "<group>"; };
 		D6770283AA9D35BF97741B28 /* Pods-FireCMS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireCMS.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireCMS/Pods-FireCMS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 				9D385DD61E85A501007FA76D /* AppDelegate.swift */,
 				9D2915231E89734F00C170B8 /* UserInfoViewController.swift */,
 				9D2915271E89B51900C170B8 /* CustomPaddedLabel.swift */,
+				9DEFC3091E92885700BFDA42 /* SceltaConferenzaTableViewController.swift */,
 				9D2915291E8BAD2300C170B8 /* SceltaConferenzaViewController.swift */,
 				9DEFC3011E90F84F00BFDA42 /* Chair */,
 				9DEFC3061E910A2700BFDA42 /* Classes */,
@@ -273,6 +276,7 @@
 				9D2915201E867E9600C170B8 /* LoginViewController.swift in Sources */,
 				9D2915261E8982BF00C170B8 /* Chair_ArticoliTableViewController.swift in Sources */,
 				9DEFC3081E915D4600BFDA42 /* CustomTableViewCell.swift in Sources */,
+				9DEFC30A1E92885800BFDA42 /* SceltaConferenzaTableViewController.swift in Sources */,
 				9D2915281E89B51900C170B8 /* CustomPaddedLabel.swift in Sources */,
 				9DEFC2FE1E8E9C5600BFDA42 /* CreaConferenzaViewController.swift in Sources */,
 				9D2915241E89734F00C170B8 /* UserInfoViewController.swift in Sources */,

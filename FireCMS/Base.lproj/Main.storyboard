@@ -202,7 +202,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLK-FT-yky" userLabel="email" customClass="CustomPaddedLabel" customModule="FireCMS" customModuleProvider="target">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLK-FT-yky" userLabel="cell" customClass="CustomPaddedLabel" customModule="FireCMS" customModuleProvider="target">
                                             <rect key="frame" x="10" y="2" width="300" height="40"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -393,12 +393,40 @@
                     <connections>
                         <outlet property="emailTextField" destination="2jF-yo-Vt8" id="7Y9-V4-zeq"/>
                         <outlet property="passwortTextField" destination="XVp-ls-a8R" id="GHf-VC-nW1"/>
-                        <segue destination="BOK-I6-1EY" kind="show" identifier="SceltaConferenza" id="E8k-om-gNv"/>
+                        <segue destination="2RS-me-uas" kind="show" identifier="SceltaConferenza" id="VDI-1B-vEZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RXO-8h-Lnp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5301" y="-664"/>
+        </scene>
+        <!--Scelta Conferenza Table View Controller-->
+        <scene sceneID="oxG-j7-Gf8">
+            <objects>
+                <tableViewController id="2RS-me-uas" customClass="SceltaConferenzaTableViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pab-hf-Kqe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SceltaConferenzaTableCell" id="rwP-RJ-mK3" customClass="CustomTableViewCell" customModule="FireCMS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rwP-RJ-mK3" id="SYv-G0-dYo">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2RS-me-uas" id="iD2-Vs-uh7"/>
+                            <outlet property="delegate" destination="2RS-me-uas" id="EVF-Ov-Rgh"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xs2-t0-87V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4129" y="-1418"/>
         </scene>
         <!--Scelta Conferenza View Controller-->
         <scene sceneID="flL-fS-tYw">
@@ -1101,9 +1129,8 @@
         <image name="register_background" width="375" height="667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xNW-rN-hsq"/>
-        <segue reference="E8k-om-gNv"/>
         <segue reference="mWL-Ie-fiR"/>
         <segue reference="H3H-He-MDi"/>
+        <segue reference="xNW-rN-hsq"/>
     </inferredMetricsTieBreakers>
 </document>

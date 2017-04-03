@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwortTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
-    
+    var listaConferenze : [ConferenzaClass]?
     var handle : FIRAuthStateDidChangeListenerHandle? = nil
     
     override func viewDidLoad() {
@@ -59,6 +59,7 @@ class LoginViewController: UIViewController {
         
 
     }
+    
     @IBAction func login(_ sender: Any) {
         guard let email = emailTextField.text else {
             return
@@ -100,7 +101,7 @@ class LoginViewController: UIViewController {
             for conference in lista {
                 utente.addConferenza(_toAdd: conference)
             }
-  
+                
             self.performSegue(withIdentifier: "SceltaConferenza", sender: self)
             
             }
@@ -109,5 +110,5 @@ class LoginViewController: UIViewController {
             print(error.localizedDescription)
         }
     }
-
+    
 }
