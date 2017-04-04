@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dAl-op-Zs6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dAl-op-Zs6">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -902,7 +902,7 @@
         <!--Lista Articoli-->
         <scene sceneID="t6M-pO-44X">
             <objects>
-                <tableViewController id="b8p-b4-ZYQ" sceneMemberID="viewController">
+                <tableViewController id="b8p-b4-ZYQ" customClass="Autore_ListaArticoliTableViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="1lU-Mu-PCx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -998,7 +998,7 @@
         <!--Sottometti-->
         <scene sceneID="hwz-aJ-6oy">
             <objects>
-                <viewController id="VB4-yF-l9T" sceneMemberID="viewController">
+                <viewController id="VB4-yF-l9T" customClass="Autore_SottmettiViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J4O-43-mgS"/>
                         <viewControllerLayoutGuide type="bottom" id="BMs-GN-IAj"/>
@@ -1006,13 +1006,109 @@
                     <view key="view" contentMode="scaleToFill" id="ah8-jg-KDc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register_background" translatesAutoresizingMaskIntoConstraints="NO" id="s1S-eL-hSe">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Titolo Articolo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ds7-2h-Byv" userLabel="Titolo">
+                                <rect key="frame" x="10" y="160" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="8se-vq-YUv"/>
+                                    <constraint firstAttribute="height" constant="40" id="pM2-sB-w3T"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardAppearance="alert" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tema Articola" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jxe-Mb-80R" userLabel="Tema">
+                                <rect key="frame" x="10" y="217" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="aDc-gt-oEw"/>
+                                    <constraint firstAttribute="height" constant="40" id="iFI-mX-l4U"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardAppearance="alert" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" alpha="0.40000000596046448" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdL-ke-5fO">
+                                <rect key="frame" x="90.5" y="328" width="140" height="35"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="PUr-Ai-hU6"/>
+                                    <constraint firstAttribute="height" constant="35" id="trw-hs-rX4"/>
+                                </constraints>
+                                <state key="normal" title="Carica File"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="caricaFileAction:" destination="VB4-yF-l9T" eventType="touchUpInside" id="yji-67-9qx"/>
+                                    <action selector="creaAction:" destination="GNe-Pw-lYH" eventType="touchUpInside" id="yNq-VG-1MS"/>
+                                    <action selector="creaNuovaConferenzaAction:" destination="BOK-I6-1EY" eventType="touchUpInside" id="Jkq-7r-t4D"/>
+                                    <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="utZ-0h-8Kd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.40000000596046448" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHg-hO-mAo" userLabel="Sottometti">
+                                <rect key="frame" x="20" y="403" width="280" height="35"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="6da-Yq-8Fi"/>
+                                    <constraint firstAttribute="height" constant="35" id="VSB-my-niG"/>
+                                </constraints>
+                                <state key="normal" title="Sottometti"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="caricaFileAction:" destination="VB4-yF-l9T" eventType="touchUpInside" id="3vI-Ls-132"/>
+                                    <action selector="creaAction:" destination="GNe-Pw-lYH" eventType="touchUpInside" id="aCN-9v-cnZ"/>
+                                    <action selector="creaNuovaConferenzaAction:" destination="BOK-I6-1EY" eventType="touchUpInside" id="ddR-bN-UG6"/>
+                                    <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="J5q-bk-C4c"/>
+                                    <action selector="sottomettiAction:" destination="VB4-yF-l9T" eventType="touchUpInside" id="34Z-dg-MkL"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zHg-hO-mAo" firstAttribute="top" secondItem="J4O-43-mgS" secondAttribute="bottom" constant="383" id="4Ho-N1-ahM"/>
+                            <constraint firstItem="s1S-eL-hSe" firstAttribute="height" secondItem="ah8-jg-KDc" secondAttribute="height" id="9QC-AL-Un4"/>
+                            <constraint firstItem="Ds7-2h-Byv" firstAttribute="top" secondItem="J4O-43-mgS" secondAttribute="bottom" constant="140" id="Aca-w6-NRS"/>
+                            <constraint firstItem="Jxe-Mb-80R" firstAttribute="top" secondItem="Ds7-2h-Byv" secondAttribute="bottom" constant="17" id="Jdr-SX-auz"/>
+                            <constraint firstItem="zHg-hO-mAo" firstAttribute="centerX" secondItem="ah8-jg-KDc" secondAttribute="centerX" id="O9w-ce-C8I"/>
+                            <constraint firstItem="wdL-ke-5fO" firstAttribute="centerX" secondItem="ah8-jg-KDc" secondAttribute="centerX" id="QIR-Q2-gc7"/>
+                            <constraint firstItem="wdL-ke-5fO" firstAttribute="top" secondItem="Jxe-Mb-80R" secondAttribute="bottom" constant="71" id="Uc3-c5-SRb"/>
+                            <constraint firstItem="s1S-eL-hSe" firstAttribute="centerX" secondItem="ah8-jg-KDc" secondAttribute="centerX" id="Xuf-QB-1du"/>
+                            <constraint firstItem="Ds7-2h-Byv" firstAttribute="centerX" secondItem="ah8-jg-KDc" secondAttribute="centerX" id="YGX-80-4rm"/>
+                            <constraint firstItem="s1S-eL-hSe" firstAttribute="width" secondItem="ah8-jg-KDc" secondAttribute="width" id="dU2-7L-ReD"/>
+                            <constraint firstItem="Jxe-Mb-80R" firstAttribute="centerX" secondItem="ah8-jg-KDc" secondAttribute="centerX" id="f8h-XV-sWN"/>
+                            <constraint firstItem="s1S-eL-hSe" firstAttribute="centerY" secondItem="ah8-jg-KDc" secondAttribute="centerY" id="z20-XD-P20"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Sottometti" id="lQT-1T-1rJ"/>
+                    <connections>
+                        <outlet property="temaTextField" destination="Jxe-Mb-80R" id="675-cW-7sS"/>
+                        <outlet property="titoloTextField" destination="Ds7-2h-Byv" id="K4e-JW-dLa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lId-Ly-jwO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-616.875" y="-1006.6901408450705"/>
+            <point key="canvasLocation" x="-695.625" y="-1195.7746478873239"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vzn-sZ-8Iv">
