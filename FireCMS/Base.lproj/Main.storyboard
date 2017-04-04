@@ -393,14 +393,14 @@
                     <connections>
                         <outlet property="emailTextField" destination="2jF-yo-Vt8" id="7Y9-V4-zeq"/>
                         <outlet property="passwortTextField" destination="XVp-ls-a8R" id="GHf-VC-nW1"/>
-                        <segue destination="2RS-me-uas" kind="show" identifier="SceltaConferenza" id="VDI-1B-vEZ"/>
+                        <segue destination="TtN-DQ-b3W" kind="show" identifier="SceltaConferenza" id="VDI-1B-vEZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RXO-8h-Lnp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5301" y="-664"/>
         </scene>
-        <!--Scelta Conferenza Table View Controller-->
+        <!--Lista Conferenze-->
         <scene sceneID="oxG-j7-Gf8">
             <objects>
                 <tableViewController id="2RS-me-uas" customClass="SceltaConferenzaTableViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
@@ -409,12 +409,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SceltaConferenzaTableCell" id="rwP-RJ-mK3" customClass="CustomTableViewCell" customModule="FireCMS" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" alpha="0.40000000000000002" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SceltaConferenzaTableCell" id="rwP-RJ-mK3" customClass="CustomTableViewCell" customModule="FireCMS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rwP-RJ-mK3" id="SYv-G0-dYo">
+                                <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.59999999999999998" contentMode="center" tableViewCell="rwP-RJ-mK3" id="SYv-G0-dYo">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -423,10 +424,27 @@
                             <outlet property="delegate" destination="2RS-me-uas" id="EVF-Ov-Rgh"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Lista Conferenze" id="Axf-vV-m4M">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Hcz-he-LCQ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="ohe-s5-Hci">
+                                <rect key="frame" x="282" y="11" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="creaNuovaConferenzaAction:" destination="2RS-me-uas" eventType="touchUpInside" id="v7F-cY-YWN"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="l9L-au-9E5" kind="show" identifier="ChairMainView" id="cgN-WT-X33"/>
+                        <segue destination="mE4-SW-WX0" kind="show" identifier="AutoreMainView" id="dPF-KF-GdC"/>
+                        <segue destination="l7J-Oh-C0l" kind="show" identifier="RecensoreMainView" id="IbA-1R-Xec"/>
+                        <segue destination="GNe-Pw-lYH" kind="show" identifier="CreaNuovaConferenza" id="bht-vq-lH2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xs2-t0-87V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4129" y="-1418"/>
+            <point key="canvasLocation" x="-3133.125" y="-1418.661971830986"/>
         </scene>
         <!--Scelta Conferenza View Controller-->
         <scene sceneID="flL-fS-tYw">
@@ -463,10 +481,6 @@
                                 <connections>
                                     <action selector="creaNuovaConferenzaAction:" destination="BOK-I6-1EY" eventType="touchUpInside" id="eWj-xo-uhG"/>
                                     <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="teA-42-E3U"/>
-                                    <segue destination="GNe-Pw-lYH" kind="show" identifier="CreaNuovaConferenza" id="mWL-Ie-fiR">
-                                        <segue key="commit" inheritsFrom="parent" id="gnV-VV-mHh"/>
-                                        <segue key="preview" inheritsFrom="commit" id="kUg-vK-kQI"/>
-                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.40000000596046448" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzR-um-VyW">
@@ -531,14 +545,11 @@
                     <connections>
                         <outlet property="conferenza1" destination="mzR-um-VyW" id="vCE-jy-jFg"/>
                         <outlet property="conferenza2" destination="Upt-6h-mfq" id="H48-fQ-HcP"/>
-                        <segue destination="mE4-SW-WX0" kind="show" identifier="AutoreMainView" id="ovP-QH-Hhv"/>
-                        <segue destination="l9L-au-9E5" kind="show" identifier="ChairMainView" id="bCB-gj-LTV"/>
-                        <segue destination="l7J-Oh-C0l" kind="show" identifier="RecensoreMainView" id="IAD-qL-HZT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Dh-Q3-C0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3890.625" y="-664.43661971830988"/>
+            <point key="canvasLocation" x="-4131" y="-649"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="dcY-1q-tko">
@@ -715,7 +726,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Data Fine" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l08-9h-T4A" userLabel="Fine">
-                                <rect key="frame" x="10" y="267" width="300" height="40"/>
+                                <rect key="frame" x="10" y="355" width="300" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Lkd-Ia-i30"/>
@@ -731,7 +742,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Data di Inizio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sGo-g0-H9u" userLabel="Inizio">
-                                <rect key="frame" x="10" y="219" width="300" height="40"/>
+                                <rect key="frame" x="10" y="307" width="300" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="ECu-DX-5Jh"/>
@@ -747,7 +758,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="luogo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gUO-Or-huk" userLabel="Luogo">
-                                <rect key="frame" x="10" y="171" width="300" height="40"/>
+                                <rect key="frame" x="10" y="211" width="300" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="AUw-T3-TmS"/>
@@ -763,7 +774,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome Conferenza" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="msx-fz-31y" userLabel="Nome">
-                                <rect key="frame" x="10" y="75" width="300" height="40"/>
+                                <rect key="frame" x="10" y="115" width="300" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="8sp-MH-KQq"/>
@@ -779,7 +790,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tema" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OeY-jt-rWb">
-                                <rect key="frame" x="10" y="123" width="300" height="40"/>
+                                <rect key="frame" x="10" y="163" width="300" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="2H1-Rl-Nv8"/>
@@ -817,12 +828,29 @@
                                     <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="kua-JI-1z9"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Numero Articoli Ammessi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QQZ-Cw-ev8" userLabel="numero Articoli">
+                                <rect key="frame" x="10" y="259" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1F7-ya-8sC"/>
+                                    <constraint firstAttribute="width" constant="300" id="DXN-Gf-s9I"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OeY-jt-rWb" firstAttribute="centerX" secondItem="Lke-57-9pA" secondAttribute="centerX" id="0bS-cp-rsG"/>
                             <constraint firstItem="gUO-Or-huk" firstAttribute="centerX" secondItem="Lke-57-9pA" secondAttribute="centerX" id="3wg-oX-ofA"/>
                             <constraint firstItem="ypu-t0-8ze" firstAttribute="centerX" secondItem="Lke-57-9pA" secondAttribute="centerX" id="8th-pi-u6s"/>
+                            <constraint firstItem="QQZ-Cw-ev8" firstAttribute="top" secondItem="gUO-Or-huk" secondAttribute="bottom" constant="8" id="973-Kd-goc"/>
                             <constraint firstItem="ypu-t0-8ze" firstAttribute="centerY" secondItem="Lke-57-9pA" secondAttribute="centerY" id="AKV-aR-zzs"/>
                             <constraint firstItem="MMd-Pn-L4I" firstAttribute="top" secondItem="tpC-H3-6Bt" secondAttribute="bottom" constant="44" id="AjH-sg-vbS"/>
                             <constraint firstItem="l08-9h-T4A" firstAttribute="top" secondItem="sGo-g0-H9u" secondAttribute="bottom" constant="8" id="EJx-9y-xNG"/>
@@ -831,11 +859,12 @@
                             <constraint firstItem="l08-9h-T4A" firstAttribute="centerX" secondItem="Lke-57-9pA" secondAttribute="centerX" id="Y0x-F7-bTB"/>
                             <constraint firstItem="tpC-H3-6Bt" firstAttribute="centerX" secondItem="Lke-57-9pA" secondAttribute="centerX" id="Z69-Lt-SvJ"/>
                             <constraint firstItem="gUO-Or-huk" firstAttribute="top" secondItem="OeY-jt-rWb" secondAttribute="bottom" constant="8" id="Zbs-3R-U0y"/>
+                            <constraint firstItem="QQZ-Cw-ev8" firstAttribute="centerX" secondItem="Lke-57-9pA" secondAttribute="centerX" id="dP3-yP-wuv"/>
                             <constraint firstItem="ypu-t0-8ze" firstAttribute="height" secondItem="Lke-57-9pA" secondAttribute="height" id="hjh-0Y-Mrt"/>
                             <constraint firstItem="OeY-jt-rWb" firstAttribute="top" secondItem="msx-fz-31y" secondAttribute="bottom" constant="8" id="hkg-fa-Oph"/>
                             <constraint firstItem="msx-fz-31y" firstAttribute="centerX" secondItem="Lke-57-9pA" secondAttribute="centerX" id="kXL-Fm-uIk"/>
-                            <constraint firstItem="sGo-g0-H9u" firstAttribute="top" secondItem="gUO-Or-huk" secondAttribute="bottom" constant="8" id="nn6-JM-Gtl"/>
-                            <constraint firstItem="msx-fz-31y" firstAttribute="top" secondItem="f7h-xW-H7y" secondAttribute="bottom" constant="55" id="yN3-3k-8mi"/>
+                            <constraint firstItem="sGo-g0-H9u" firstAttribute="top" secondItem="gUO-Or-huk" secondAttribute="bottom" constant="56" id="nn6-JM-Gtl"/>
+                            <constraint firstItem="msx-fz-31y" firstAttribute="top" secondItem="f7h-xW-H7y" secondAttribute="bottom" constant="95" id="yN3-3k-8mi"/>
                         </constraints>
                     </view>
                     <connections>
@@ -844,12 +873,12 @@
                         <outlet property="luogoField" destination="gUO-Or-huk" id="Js5-ZQ-yhE"/>
                         <outlet property="nomeField" destination="msx-fz-31y" id="9PG-jy-ger"/>
                         <outlet property="temaField" destination="OeY-jt-rWb" id="r3g-Id-V5e"/>
-                        <segue destination="BOK-I6-1EY" kind="presentation" identifier="SceltaConferenzaDaCrea" id="qtc-ey-gbS"/>
+                        <segue destination="2RS-me-uas" kind="show" identifier="SceltaConferenzaDaCrea" id="Ws9-fb-WOe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zu2-Uh-Tah" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3926" y="356"/>
+            <point key="canvasLocation" x="-3354" y="13"/>
         </scene>
         <!--Sottometti Rivisto-->
         <scene sceneID="glH-Fx-QBB">
@@ -983,7 +1012,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lId-Ly-jwO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1614" y="-1006"/>
+            <point key="canvasLocation" x="-616.875" y="-1006.6901408450705"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vzn-sZ-8Iv">
@@ -1123,14 +1152,32 @@
             </objects>
             <point key="canvasLocation" x="2179" y="-664"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="agc-Hn-0yy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TtN-DQ-b3W" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c1S-lO-UOi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2RS-me-uas" kind="relationship" relationship="rootViewController" id="vFv-OB-Grg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d4Z-Mo-KuX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4130.625" y="-1418.661971830986"/>
+        </scene>
     </scenes>
     <resources>
         <image name="logo" width="366" height="162"/>
         <image name="register_background" width="375" height="667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mWL-Ie-fiR"/>
-        <segue reference="H3H-He-MDi"/>
         <segue reference="xNW-rN-hsq"/>
+        <segue reference="Ws9-fb-WOe"/>
+        <segue reference="Qkn-Rc-pZe"/>
     </inferredMetricsTieBreakers>
 </document>

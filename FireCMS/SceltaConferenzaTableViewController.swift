@@ -21,7 +21,7 @@ class SceltaConferenzaTableViewController: UITableViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-
+        tableView.separatorStyle = .none
     }
 
 
@@ -38,11 +38,13 @@ class SceltaConferenzaTableViewController: UITableViewController {
         // no lines where there aren't cells
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
+        /*
         //add background blur  
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = imageView.bounds
         imageView.addSubview(blurView)
+        */
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,30 +52,89 @@ class SceltaConferenzaTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    @IBAction func creaNuovaConferenzaAction(_ sender: Any) {
+        performSegue(withIdentifier: "CreaNuovaConferenza", sender: self)
+    }
+
+    
     func populateListaConferenze(completion: @escaping (([ConferenzaClass]) -> Void)) {
         var lista = [ConferenzaClass]()
-        let count = utente.getListaConferenze().count
-        for conference in utente.getListaConferenze() {
-            FIRDatabase.database().reference().child("conferenze").child(conference).observeSingleEvent(of: .value, with: { (snapshot) in
-                if let value = snapshot.value as? NSDictionary {
-                    
-                    let conf = ConferenzaClass(_uid: conference, _nome: value["NomeConferenza"] as! String, _tema: value["TemaConferenza"] as! String, _luogo: value["LuogoConferenza"] as! String, _chairUid: value["ChairUid"] as! String, _inizio: value["DataInizio"] as! String, _fine: value["DataFine"] as! String)
-                    
+        var count = 0
+        FIRDatabase.database().reference().child("conferenze").observeSingleEvent(of: .value, with: { (snapshot) in
+                count = Int(snapshot.childrenCount)
+  
+                    for child in (snapshot.children) {
+                        let snap = child as! FIRDataSnapshot
+                        if let value = snap.value as? NSDictionary {
+                        let conf = ConferenzaClass(_uid: snap.key, _nome: value["NomeConferenza"] as! String, _tema: value["TemaConferenza"] as! String, _luogo: value["LuogoConferenza"] as! String, _chairUid: value["ChairUid"] as! String, _inizio: value["DataInizio"] as! String, _fine: value["DataFine"] as! String)
+                        
                     lista.append(conf)
                 }
-                if lista.count == Int(count) {
+                        
+                if lista.count == count {
                     completion(lista)
                 }
-            })
-            
-        }
-        
+            }
+        })
     }
 
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //cosa fare alla selezione di una cella
-        performSegue(withIdentifier: "", sender: self)
+        self.definisciConferenza(_indice: indexPath.row)
+        
+        self.definisciRuolo()
+    }
+    
+    func definisciRuolo() -> Void {
+        let userUid = utente.getUid()
+        let chairUid = conferenza.getChairUid()
+        let conferenceUid = conferenza.getUid()
+        
+        if userUid == chairUid {
+            performSegue(withIdentifier: "ChairMainView", sender: self)
+            return
+        }
+        
+      FIRDatabase.database().reference().child("Recensioni").childByAutoId().queryEqual(toValue: conferenceUid, childKey: "idConferenza").observeSingleEvent(of: .value, with: { (snapshot) in
+        for child in snapshot.children {
+            let snap = child as! FIRDataSnapshot
+
+            if let value = snap.value as? NSDictionary {
+                if (value["idRecensore"] as! String) == userUid {
+                    self.performSegue(withIdentifier: "RecensoreMainView", sender: self)
+                    return
+                }
+            }
+        }
+      }) { (error) in
+            print(error.localizedDescription)
+    }
+      
+    FIRDatabase.database().reference().child("Articoli").childByAutoId().queryEqual(toValue: conferenceUid, childKey: "idConferenza").observeSingleEvent(of: .value, with: { (snapshot) in
+            for child in snapshot.children {
+                let snap = child as! FIRDataSnapshot
+                
+                if let value = snap.value as? NSDictionary {
+                    if (value["idAutore"] as! String) == userUid {
+                    self.performSegue(withIdentifier: "AutoreMainView", sender: self)
+                    return
+                    }
+                }
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    func definisciConferenza(_indice: Int) -> Void {
+        conferenza.setUid(_uid: listaConferenze[_indice].getUid())
+        conferenza.setNomeConferenza(_nome: listaConferenze[_indice].getNomeConferenza())
+        conferenza.setTemaConferenza(_tema: listaConferenze[_indice].getTemaConferenza())
+        conferenza.setLuogoConferenza(_luogo: listaConferenze[_indice].getLuogoConferenza())
+        conferenza.setInizioConferenza(_inizio: listaConferenze[_indice].getInizioConferenza())
+        conferenza.setFineConferenza(_fine: listaConferenze[_indice].getFineConferenza())
+        conferenza.setChairUid(_chairUid: listaConferenze[_indice].getChairUid())
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -90,7 +151,10 @@ class SceltaConferenzaTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SceltaConferenzaTableCell", for: indexPath)
-
+        
+        //cell.textLabel?.layer.backgroundColor = UIColor(red: 0/255, green: 159/255, blue: 184/255, alpha: 1.0).cgColor
+        cell.layer.cornerRadius = 10
+        
         cell.textLabel?.text = listaConferenze[indexPath.row].getNomeConferenza()
         
         return cell
