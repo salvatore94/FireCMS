@@ -83,8 +83,7 @@ class SceltaConferenzaTableViewController: UITableViewController {
         //cosa fare alla selezione di una cella
         self.definisciConferenza(_indice: indexPath.row)
         
-        //self.definisciRuolo()
-        self.performSegue(withIdentifier: "AutoreMainView", sender: self)
+        self.definisciRuolo()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

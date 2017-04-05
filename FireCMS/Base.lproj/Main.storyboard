@@ -155,7 +155,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVA-oB-NgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-842" y="-2085"/>
+            <point key="canvasLocation" x="-855" y="-1926"/>
         </scene>
         <!--Articoli-->
         <scene sceneID="ArH-IY-6ve">
@@ -184,9 +184,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vur-ll-zYH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-844" y="-2790"/>
+            <point key="canvasLocation" x="169" y="-2451"/>
         </scene>
-        <!--Comitato-->
+        <!--Chair Comitato Table View Controller-->
         <scene sceneID="idC-Xj-uhO">
             <objects>
                 <tableViewController id="Xjd-n3-Kcf" customClass="Chair_ComitatoTableViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
@@ -201,35 +201,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="84i-MC-Lxu" id="5no-ha-5Bx">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLK-FT-yky" userLabel="cell" customClass="CustomPaddedLabel" customModule="FireCMS" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="2" width="300" height="40"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="Xah-9P-rXy"/>
-                                                <constraint firstAttribute="width" constant="300" id="lb6-SS-Hch"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
-                                                    <integer key="value" value="8"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
-                                                    <real key="value" value="10"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="qLK-FT-yky" firstAttribute="centerY" secondItem="5no-ha-5Bx" secondAttribute="centerY" id="gYz-ZD-pIM"/>
-                                        <constraint firstItem="qLK-FT-yky" firstAttribute="centerX" secondItem="5no-ha-5Bx" secondAttribute="centerX" id="uYO-5d-3DQ"/>
-                                    </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="cellLabel" destination="qLK-FT-yky" id="Yxk-Jk-8qA"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -237,14 +209,49 @@
                             <outlet property="delegate" destination="Xjd-n3-Kcf" id="wh7-JZ-jrA"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Comitato" id="cch-oQ-06n"/>
+                    <navigationItem key="navigationItem" id="KDA-ah-BPj">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="uax-tq-E6b">
+                            <connections>
+                                <action selector="aggiungiAComitatoAction:" destination="Xjd-n3-Kcf" id="uCf-Vt-L0O"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="iDH-pf-rVh" kind="presentation" identifier="recensoreInfo" id="FvO-uF-GoP"/>
+                        <segue destination="wCo-AO-5SC" kind="show" identifier="AggiungiAComitato" id="jAC-Bk-pgA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFv-Zc-ha5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1577" y="-3146"/>
+            <point key="canvasLocation" x="-581.25" y="-3146.8309859154929"/>
+        </scene>
+        <!--Chair AggiungiA Comitato Table View Controller-->
+        <scene sceneID="7sg-ze-NuW">
+            <objects>
+                <tableViewController id="wCo-AO-5SC" customClass="Chair_AggiungiAComitatoTableViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MQc-UR-8az">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AggiungiAComitatoCell" id="6CS-i5-ZJy">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6CS-i5-ZJy" id="RhC-Br-7Ye">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wCo-AO-5SC" id="1Vd-eC-yny"/>
+                            <outlet property="delegate" destination="wCo-AO-5SC" id="aPn-jp-Dou"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LMG-ib-fhq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="421" y="-3143"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="RB8-1t-hHP">
@@ -257,7 +264,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="X2t-FU-gX3" kind="relationship" relationship="viewControllers" id="H3H-He-MDi"/>
-                        <segue destination="Xjd-n3-Kcf" kind="relationship" relationship="viewControllers" id="TIu-ac-LIr"/>
+                        <segue destination="7Jg-9g-UUS" kind="relationship" relationship="viewControllers" id="TIu-ac-LIr"/>
                         <segue destination="iJB-mP-IOj" kind="relationship" relationship="viewControllers" id="0cR-R4-4wV"/>
                         <segue destination="xqx-sw-AvW" kind="relationship" relationship="viewControllers" id="Zf1-aj-kvM"/>
                     </connections>
@@ -1266,6 +1273,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4Z-Mo-KuX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4130.625" y="-1418.661971830986"/>
+        </scene>
+        <!--Comitato-->
+        <scene sceneID="X8v-WP-CnN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Jg-9g-UUS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Comitato" id="cch-oQ-06n"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6uu-bc-2yE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Xjd-n3-Kcf" kind="relationship" relationship="rootViewController" id="4VC-bE-3Du"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v5S-cX-8fM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1578.75" y="-3146.8309859154929"/>
         </scene>
     </scenes>
     <resources>

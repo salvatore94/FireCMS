@@ -40,6 +40,9 @@ class Chair_ComitatoTableViewController: UITableViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
     }
+    @IBAction func aggiungiAComitatoAction(_ sender: Any) {
+        self.performSegue(withIdentifier: "AggiungiAComitato", sender: self)
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -54,11 +57,11 @@ class Chair_ComitatoTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ComitatoCell", for: indexPath) as! CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ComitatoCell", for: indexPath)
         
         let nome = comitato[indexPath.row].getNome() + " " + comitato[indexPath.row].getCognome()
         
-        cell.cellLabel?.text = nome
+        cell.textLabel?.text = nome
     
         return cell
     }

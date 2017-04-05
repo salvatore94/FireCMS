@@ -52,16 +52,18 @@ class Chair_ArticoliTableViewController: UITableViewController {
     func populateListaArticoli(completion: @escaping (([ArticoloClass]) -> Void)) {
         var lista = [ArticoloClass]()
         var count = 0
-        FIRDatabase.database().reference().child("articoli").childByAutoId().queryEqual(toValue: conferenza.getUid(), childKey: "conferenzaUid").observeSingleEvent(of: .value, with: { (snapshot) in
+        FIRDatabase.database().reference().child("articoli").observeSingleEvent(of: .value, with: { (snapshot) in
             count = Int(snapshot.childrenCount)
             
             for child in (snapshot.children) {
                 let snap = child as! FIRDataSnapshot
                 
                 if let value = snap.value as? NSDictionary {
-                    let articolo = ArticoloClass(_uid: snap.key, _autoreUid: value["autoreUid"] as! String, _titolo: value["titolo"] as! String, _tema: value["tema"] as! String)
+                    if value["conferenzaUid"] as! String == conferenza.getUid() {
+                        let articolo = ArticoloClass(_uid: snap.key, _autoreUid: value["autoreUid"] as! String, _titolo: value["titolo"] as! String, _tema: value["tema"] as! String)
                     
-                    lista.append(articolo)
+                        lista.append(articolo)
+                    }
                 }
                 
                 if lista.count == count {
