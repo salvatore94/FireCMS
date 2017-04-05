@@ -15,12 +15,12 @@ class Autore_ListaArticoliTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
+
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
+        
+        super.tableView.reloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +42,8 @@ class Autore_ListaArticoliTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tableView.reloadData()
+        
+        super.tableView.reloadData()
     }
     
     func populateListaArticoli(completion: @escaping (([ArticoloClass]) -> Void)) {
@@ -55,10 +56,10 @@ class Autore_ListaArticoliTableViewController: UITableViewController {
                 let snap = child as! FIRDataSnapshot
                 
                 if let value = snap.value as? NSDictionary {
-                    if value["autoreUid"] as! String == utente.getUid() {
-                    let articolo = ArticoloClass(_uid: snap.key, _autoreUid: value["autoreUid"] as! String, _titolo: value["titolo"] as! String, _tema: value["tema"] as! String)
-                    print (articolo)
-                    lista.append(articolo)
+                    if value["autoreUid"] as! String == utente.getUid()  && value["conferenzaUid"] as! String == conferenza.getUid() {
+                        let articolo = ArticoloClass(_uid: snap.key, _autoreUid: value["autoreUid"] as! String, _titolo: value["titolo"] as! String, _tema: value["tema"] as! String)
+                        print (articolo)
+                        lista.append(articolo)
                     }
                 }
                 
