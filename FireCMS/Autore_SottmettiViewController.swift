@@ -33,7 +33,7 @@ class Autore_SottmettiViewController: UIViewController {
         articolo.setTitolo(_titolo: titolo)
         articolo.setTema(_tema: tema)
         
-        let value = ["autoreUid" : utente.getUid(), "titolo" : titolo, "tema" : tema]
+        let value = ["autoreUid" : utente.getUid(), "titolo" : titolo, "tema" : tema, "conferenzaUid" : conferenza.getUid()]
         FIRDatabase.database().reference().child("articoli").childByAutoId().setValue(value)
         
         let alertVC = UIAlertController(title: "Successo", message: "Articolo Sottomesso", preferredStyle: UIAlertControllerStyle.alert)

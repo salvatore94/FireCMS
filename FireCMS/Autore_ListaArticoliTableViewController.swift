@@ -16,9 +16,7 @@ class Autore_ListaArticoliTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.populateListaArticoli(){ (response) in
-            self.listaArticoli = response
-        }
+        
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -27,7 +25,9 @@ class Autore_ListaArticoliTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.populateListaArticoli(){ (response) in
+            self.listaArticoli = response
+        }
         
         //set up background
         let backgroundImage = UIImage(named: "register_background.png")
@@ -37,16 +37,9 @@ class Autore_ListaArticoliTableViewController: UITableViewController {
         
         // no lines where there aren't cells
         tableView.tableFooterView = UIView(frame: CGRect.zero)
-        
-        /*
-         //add background blur
-         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-         let blurView = UIVisualEffectView(effect: blurEffect)
-         blurView.frame = imageView.bounds
-         imageView.addSubview(blurView)
-         */
-    }
 
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tableView.reloadData()
@@ -55,16 +48,18 @@ class Autore_ListaArticoliTableViewController: UITableViewController {
     func populateListaArticoli(completion: @escaping (([ArticoloClass]) -> Void)) {
         var lista = [ArticoloClass]()
         var count = 0
-        FIRDatabase.database().reference().child("articoli").childByAutoId().queryEqual(toValue: utente.getUid(), childKey: "autoreUid").observeSingleEvent(of: .value, with: { (snapshot) in
+        FIRDatabase.database().reference().child("articoli").observeSingleEvent(of: .value, with: { (snapshot) in
             count = Int(snapshot.childrenCount)
             
             for child in (snapshot.children) {
                 let snap = child as! FIRDataSnapshot
                 
                 if let value = snap.value as? NSDictionary {
+                    if value["autoreUid"] as! String == utente.getUid() {
                     let articolo = ArticoloClass(_uid: snap.key, _autoreUid: value["autoreUid"] as! String, _titolo: value["titolo"] as! String, _tema: value["tema"] as! String)
-                    
+                    print (articolo)
                     lista.append(articolo)
+                    }
                 }
                 
                 if lista.count == count {
@@ -90,7 +85,7 @@ class Autore_ListaArticoliTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Autore_listaArticoliTableCell", for: indexPath)
 
         // Configure the cell...
         cell.layer.cornerRadius = 10

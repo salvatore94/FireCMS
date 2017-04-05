@@ -90,6 +90,7 @@ class LoginViewController: UIViewController {
         FIRDatabase.database().reference().child("utenti").child(FIRAuth.auth()!.currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             if let value = snapshot.value as? NSDictionary {
             
+            utente.setUid(_uid: FIRAuth.auth()!.currentUser!.uid)
             utente.setNome(_nome: (value["nome"] as! String ))
             utente.setCognome(_cognome: (value["cognome"] as! String))
             utente.setEmail(_email: (value["email"] as! String))

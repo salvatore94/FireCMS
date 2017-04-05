@@ -14,7 +14,7 @@
         <!--Info-->
         <scene sceneID="Fty-tS-vYP">
             <objects>
-                <viewController id="X2t-FU-gX3" customClass="UserInfoViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="info" id="X2t-FU-gX3" customClass="UserInfoViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z46-ys-aYi"/>
                         <viewControllerLayoutGuide type="bottom" id="gO5-rG-bOT"/>
@@ -897,7 +897,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZTS-iE-Xjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1614" y="-200"/>
+            <point key="canvasLocation" x="-1579" y="-187"/>
         </scene>
         <!--Lista Articoli-->
         <scene sceneID="t6M-pO-44X">
@@ -908,7 +908,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Recensore_listaArticoliTableCell" id="Vva-Bs-uJ1">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Autore_listaArticoliTableCell" id="Vva-Bs-uJ1">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vva-Bs-uJ1" id="gDu-yT-xcT">

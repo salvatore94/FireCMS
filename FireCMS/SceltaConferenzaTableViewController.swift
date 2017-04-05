@@ -83,8 +83,24 @@ class SceltaConferenzaTableViewController: UITableViewController {
         //cosa fare alla selezione di una cella
         self.definisciConferenza(_indice: indexPath.row)
         
-        self.definisciRuolo()
+        //self.definisciRuolo()
+        self.performSegue(withIdentifier: "AutoreMainView", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AutoreMainView" {
+            let Tabcontroller = segue.destination as! UITabBarController
+            let controllers = Tabcontroller.viewControllers
+            for controller in controllers! {
+                if controller.restorationIdentifier == "info" {
+                    let infoController = controller as! UserInfoViewController
+                    infoController.setNomeLabel(_nome: utente.getNome())
+                    infoController.setEmailLabel(_email: utente.getEmail())
+                }
+            }
+        }
+    }
+
     
     func definisciRuolo() -> Void {
         let userUid = utente.getUid()
