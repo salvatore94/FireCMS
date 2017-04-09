@@ -82,16 +82,15 @@ class Chair_ArticoliAddRecensoreTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return listaRecensori.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recensoreCell", for: indexPath)
 
-        // Configure the cell...
-
+        cell.textLabel?.text = listaRecensori[indexPath.row]
+.getNome() + " " + listaRecensori[indexPath.row].getCognome()
         return cell
     }
 
