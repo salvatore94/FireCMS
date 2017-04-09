@@ -1,31 +1,30 @@
 //
-//  Chair_RecensioniTableViewController.swift
+//  Chair_ArticoliRecensoriAssegnatiTableViewController.swift
 //  FireCMS
 //
-//  Created by Salvatore  Polito on 05/04/17.
+//  Created by Salvatore  Polito on 09/04/17.
 //  Copyright © 2017 Salvatore  Polito. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-var recensione = RecensioneClass()
+class Chair_ArticoliRecensoriAssegnatiTableViewController: UITableViewController {
 
-class Chair_RecensioniTableViewController: UITableViewController {
-
-    var listaRecensioni = [RecensioneClass]()
+    var listaRecensoriAssegnati = [String]()
+    var listaUtenti = [UserClass]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.listaRecensioni = populateListaRecensioni()
+        listaRecensoriAssegnati = populateListaRecensoriAssegnati()
         
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
         
-        }
-
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -45,21 +44,47 @@ class Chair_RecensioniTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    func populateListaRecensioni() -> [RecensioneClass] {
-        var lista = [RecensioneClass]()
+    @IBAction func addRecensoreAction(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "AddRecensoreTable", sender: self)
+    }
+    
+    
+    func populateListaRecensoriAssegnati() -> [String] {
+        var lista = [String]()
         FIRDatabase.database().reference().child("recensioni").child(conferenza.getUid()).observeSingleEvent(of: .value, with: { (snapshot) in
             
             for child in (snapshot.children) {
                 let snap = child as! FIRDataSnapshot
                 
                 if let value = snap.value as? NSDictionary {
-                        let recensione = RecensioneClass(_uid: snap.key, _recensoreUid: value["recensoreUid"] as! String, _articoloUid: value["articoloUid"] as! String, _voto: value["voto"] as! Double, _commento: value["commento"] as! String)
-                    
-                            if value["commentoPrivato"] as! String != "" {
-                                recensione.setCommentoPrivato(_commentoPrivato: value["commentoPrivato"] as! String)
-                            }
-                    
-                        lista.append(recensione)
+                    if value["articoloUid"] as! String == articolo?.getUid() {
+                    let recensore = value["recensoreUid"] as! String
+                        
+                        
+                    lista.append(recensore)
+                    }
+                }
+
+            }
+        })
+        
+        return lista
+    }
+
+    func popolaListaUtenti() -> [UserClass] {
+        var lista = [UserClass]()
+        
+        FIRDatabase.database().reference().child("utenti").observe(.value, with: { (snapshot) in
+            for child in snapshot.children {
+                let snap = child as! FIRDataSnapshot
+                for uid in self.listaRecensoriAssegnati {
+                    if snap.key == uid {
+                        let value = snap as! NSDictionary
+                        let user = UserClass(_uid: snap.key, _email: value["email"] as! String, _nome: value["nome"] as! String, _cognome: value["cognome"] as! String)
+                        
+                        lista.append(user)
+                    }
                 }
             }
         })
@@ -74,26 +99,17 @@ class Chair_RecensioniTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // la dimensione della tabella articoli
-        return listaRecensioni.count
+        // #warning Incomplete implementation, return the number of rows
+        return listaRecensoriAssegnati.count
     }
+
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Chair_listaArticoliTableCell", for: indexPath)
-        
-        cell.layer.cornerRadius = 10
-        
-        cell.textLabel?.text = listaRecensioni[indexPath.row].getArticoloUid() + " :  \(listaRecensioni[indexPath.row].getVoto())"
-        
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recensoriCell", for: indexPath)
+
+        cell.textLabel?.text = listaUtenti[indexPath.row].getNome() + " " + listaUtenti[indexPath.row].getCognome()
+
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //cosa fare alla selezione di una cella
-        recensione = listaRecensioni[indexPath.row]
-        
-        performSegue(withIdentifier: "DettagliRecensione", sender: self)
     }
     
 
@@ -103,4 +119,5 @@ class Chair_RecensioniTableViewController: UITableViewController {
         // Return false if you do not want the specified item to be editable.
         return false
     }
+    
 }

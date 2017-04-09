@@ -131,7 +131,7 @@
         <!--Recensioni-->
         <scene sceneID="mvG-3A-mfA">
             <objects>
-                <tableViewController id="xqx-sw-AvW" sceneMemberID="viewController">
+                <tableViewController id="xqx-sw-AvW" customClass="Chair_RecensioniTableViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="J7Q-IC-kDy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -152,12 +152,135 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Recensioni" id="wZl-zA-uBq"/>
+                    <connections>
+                        <segue destination="X0N-lX-SFI" kind="show" identifier="DettagliRecensione" id="azi-SN-QAI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVA-oB-NgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-855" y="-1926"/>
+            <point key="canvasLocation" x="-853" y="-1901"/>
         </scene>
-        <!--Articoli-->
+        <!--Chair Recensione Dettagli View Controller-->
+        <scene sceneID="37q-Jy-wyi">
+            <objects>
+                <viewController id="c6z-eZ-htQ" customClass="Chair_RecensioneDettagliViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bjh-PY-k7H"/>
+                        <viewControllerLayoutGuide type="bottom" id="srK-1D-VHp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QlD-4l-XWs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register_background" translatesAutoresizingMaskIntoConstraints="NO" id="zwm-au-PUf">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4Z-VU-mk4" userLabel="Titolo" customClass="CustomPaddedLabel" customModule="FireCMS" customModuleProvider="target">
+                                <rect key="frame" x="10" y="124" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="QoO-ID-7aV"/>
+                                    <constraint firstAttribute="height" constant="40" id="Sy3-Fq-MfD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEV-bW-204" userLabel="Voto" customClass="CustomPaddedLabel" customModule="FireCMS" customModuleProvider="target">
+                                <rect key="frame" x="10" y="172" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Jug-6l-HKm"/>
+                                    <constraint firstAttribute="height" constant="40" id="Mwb-H9-YTo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMA-X6-8UJ" userLabel="Commento Riservato" customClass="CustomPaddedLabel" customModule="FireCMS" customModuleProvider="target">
+                                <rect key="frame" x="10" y="268" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ScB-Eb-cvN"/>
+                                    <constraint firstAttribute="width" constant="300" id="VUu-yM-nhf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sc-HE-r9v" userLabel="Commento" customClass="CustomPaddedLabel" customModule="FireCMS" customModuleProvider="target">
+                                <rect key="frame" x="10" y="220" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="lP4-vs-mj4"/>
+                                    <constraint firstAttribute="height" constant="40" id="yZY-6N-Cff"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cMA-X6-8UJ" firstAttribute="centerX" secondItem="QlD-4l-XWs" secondAttribute="centerX" id="1jV-Vs-18E"/>
+                            <constraint firstItem="cMA-X6-8UJ" firstAttribute="top" secondItem="fEV-bW-204" secondAttribute="bottom" constant="56" id="21s-np-1tS"/>
+                            <constraint firstItem="cMA-X6-8UJ" firstAttribute="top" secondItem="4Sc-HE-r9v" secondAttribute="bottom" constant="8" id="6NB-h6-0Pb"/>
+                            <constraint firstItem="N4Z-VU-mk4" firstAttribute="centerX" secondItem="QlD-4l-XWs" secondAttribute="centerX" id="QBO-ug-K06"/>
+                            <constraint firstItem="fEV-bW-204" firstAttribute="centerX" secondItem="QlD-4l-XWs" secondAttribute="centerX" id="QhW-sf-gqU"/>
+                            <constraint firstItem="zwm-au-PUf" firstAttribute="height" secondItem="QlD-4l-XWs" secondAttribute="height" id="RRL-TL-jgG"/>
+                            <constraint firstItem="4Sc-HE-r9v" firstAttribute="centerX" secondItem="QlD-4l-XWs" secondAttribute="centerX" id="TOG-xf-vz7"/>
+                            <constraint firstItem="fEV-bW-204" firstAttribute="top" secondItem="N4Z-VU-mk4" secondAttribute="bottom" constant="8" id="bHm-rO-ZYu"/>
+                            <constraint firstItem="zwm-au-PUf" firstAttribute="centerY" secondItem="QlD-4l-XWs" secondAttribute="centerY" id="dIg-EB-fgc"/>
+                            <constraint firstItem="N4Z-VU-mk4" firstAttribute="top" secondItem="bjh-PY-k7H" secondAttribute="bottom" constant="60" id="dQN-td-Xud"/>
+                            <constraint firstItem="zwm-au-PUf" firstAttribute="width" secondItem="QlD-4l-XWs" secondAttribute="width" id="eVN-Is-adY"/>
+                            <constraint firstItem="zwm-au-PUf" firstAttribute="centerX" secondItem="QlD-4l-XWs" secondAttribute="centerX" id="n5l-gB-aZw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Z4c-1W-eCK"/>
+                    <connections>
+                        <outlet property="commentoField" destination="4Sc-HE-r9v" id="1EN-hH-IMb"/>
+                        <outlet property="commentoPrivatoField" destination="cMA-X6-8UJ" id="5na-9E-Wcc"/>
+                        <outlet property="titoloField" destination="N4Z-VU-mk4" id="jQ8-uc-7y8"/>
+                        <outlet property="votoField" destination="fEV-bW-204" id="ma1-B4-sD4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KiA-ls-7TQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1166.25" y="-1795.7746478873239"/>
+        </scene>
+        <!--Chair Articoli Table View Controller-->
         <scene sceneID="ArH-IY-6ve">
             <objects>
                 <tableViewController id="iJB-mP-IOj" customClass="Chair_ArticoliTableViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
@@ -180,11 +303,194 @@
                             <outlet property="delegate" destination="iJB-mP-IOj" id="ld7-ZC-mzo"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Articoli" id="Ovd-q9-mbB"/>
+                    <navigationItem key="navigationItem" id="BiO-gS-IRP"/>
+                    <connections>
+                        <segue destination="xn6-BE-Asc" kind="show" identifier="ChairArticoloSelected" id="3Zy-ob-5sZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vur-ll-zYH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="169" y="-2451"/>
+            <point key="canvasLocation" x="1166.25" y="-2451.7605633802818"/>
+        </scene>
+        <!--Chair Articoli Recensori Assegnati Table View Controller-->
+        <scene sceneID="ReB-p3-DAS">
+            <objects>
+                <tableViewController id="f86-yO-qSx" customClass="Chair_ArticoliRecensoriAssegnatiTableViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hK9-oB-9e9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recensoriCell" id="SDl-0D-C3H">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SDl-0D-C3H" id="Uam-Cx-Giy">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="f86-yO-qSx" id="5ml-sk-VfM"/>
+                            <outlet property="delegate" destination="f86-yO-qSx" id="Skv-9V-BL7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="hLI-pU-5ZY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="l56-DF-BBa">
+                            <connections>
+                                <action selector="addRecensoreAction:" destination="f86-yO-qSx" id="xv9-0Y-4yo"/>
+                                <segue destination="z2i-Ub-wDu" kind="show" identifier="AddRecensoreTable" id="hPk-b2-oa3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MR3-8G-n8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5075.625" y="-2086.2676056338028"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="ICr-OJ-c5N">
+            <objects>
+                <tableViewController id="z2i-Ub-wDu" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ltt-i9-I0P">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recensoreCell" id="mWx-el-aAD">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mWx-el-aAD" id="nCu-ir-DMh">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="z2i-Ub-wDu" id="FNP-cA-sxW"/>
+                            <outlet property="delegate" destination="z2i-Ub-wDu" id="Ftn-YI-Qs3"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bf5-J3-F2J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5983.125" y="-2086.2676056338028"/>
+        </scene>
+        <!--Dettagli-->
+        <scene sceneID="9lT-bm-7OM">
+            <objects>
+                <viewController id="SSg-zq-tun" customClass="Chair_ArticoliDettagliViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jsv-fa-ht7"/>
+                        <viewControllerLayoutGuide type="bottom" id="Teh-fS-q7T"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GMU-Wy-s5W">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register_background" translatesAutoresizingMaskIntoConstraints="NO" id="XF6-mQ-dvY">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rh0-xv-VpL" userLabel="Titolo" customClass="CustomPaddedLabel" customModule="FireCMS" customModuleProvider="target">
+                                <rect key="frame" x="10" y="133" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="DYE-2K-wMO"/>
+                                    <constraint firstAttribute="height" constant="40" id="HyV-Ay-4pE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnj-8C-F1J" userLabel="Tema" customClass="CustomPaddedLabel" customModule="FireCMS" customModuleProvider="target">
+                                <rect key="frame" x="10" y="181" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="HXz-NS-NG3"/>
+                                    <constraint firstAttribute="width" constant="300" id="UOS-l8-7Uc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKy-x5-m5l" userLabel="Autore" customClass="CustomPaddedLabel" customModule="FireCMS" customModuleProvider="target">
+                                <rect key="frame" x="10" y="229" width="300" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="5Ii-pk-KcK"/>
+                                    <constraint firstAttribute="height" constant="40" id="LIJ-Uc-2dE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XF6-mQ-dvY" firstAttribute="height" secondItem="GMU-Wy-s5W" secondAttribute="height" id="H73-b0-TUe"/>
+                            <constraint firstItem="TKy-x5-m5l" firstAttribute="top" secondItem="fnj-8C-F1J" secondAttribute="bottom" constant="8" id="HFy-9U-Jhx"/>
+                            <constraint firstItem="XF6-mQ-dvY" firstAttribute="centerX" secondItem="GMU-Wy-s5W" secondAttribute="centerX" id="S9h-1E-PQm"/>
+                            <constraint firstItem="rh0-xv-VpL" firstAttribute="centerX" secondItem="GMU-Wy-s5W" secondAttribute="centerX" id="VWr-pt-X5U"/>
+                            <constraint firstItem="TKy-x5-m5l" firstAttribute="centerX" secondItem="GMU-Wy-s5W" secondAttribute="centerX" id="fQM-1P-OMk"/>
+                            <constraint firstItem="XF6-mQ-dvY" firstAttribute="width" secondItem="GMU-Wy-s5W" secondAttribute="width" id="kTu-XH-IdE"/>
+                            <constraint firstItem="XF6-mQ-dvY" firstAttribute="centerY" secondItem="GMU-Wy-s5W" secondAttribute="centerY" id="p8Y-0h-iMr"/>
+                            <constraint firstItem="fnj-8C-F1J" firstAttribute="top" secondItem="rh0-xv-VpL" secondAttribute="bottom" constant="8" id="sD0-LQ-lsu"/>
+                            <constraint firstItem="fnj-8C-F1J" firstAttribute="centerX" secondItem="GMU-Wy-s5W" secondAttribute="centerX" id="uzn-0K-WRP"/>
+                            <constraint firstItem="rh0-xv-VpL" firstAttribute="top" secondItem="Jsv-fa-ht7" secondAttribute="bottom" constant="69" id="vln-KF-8BP"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Dettagli" id="gUK-oM-CE4"/>
+                    <connections>
+                        <outlet property="autoreField" destination="TKy-x5-m5l" id="zxE-1K-80d"/>
+                        <outlet property="temaField" destination="fnj-8C-F1J" id="4A8-j4-KqK"/>
+                        <outlet property="titoloField" destination="rh0-xv-VpL" id="odv-h9-Vfs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="whd-Se-eH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3081" y="-2782"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ebc-0k-flA">
+            <objects>
+                <tabBarController id="xn6-BE-Asc" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="rly-FU-IPV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="SSg-zq-tun" kind="relationship" relationship="viewControllers" id="BPC-jS-NMJ"/>
+                        <segue destination="mIm-fp-SrC" kind="relationship" relationship="viewControllers" id="LNv-ZH-PsE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LMu-8c-367" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2068" y="-2450"/>
         </scene>
         <!--Chair Comitato Table View Controller-->
         <scene sceneID="idC-Xj-uhO">
@@ -265,7 +571,7 @@
                     <connections>
                         <segue destination="X2t-FU-gX3" kind="relationship" relationship="viewControllers" id="H3H-He-MDi"/>
                         <segue destination="7Jg-9g-UUS" kind="relationship" relationship="viewControllers" id="TIu-ac-LIr"/>
-                        <segue destination="iJB-mP-IOj" kind="relationship" relationship="viewControllers" id="0cR-R4-4wV"/>
+                        <segue destination="kQc-Ni-a4R" kind="relationship" relationship="viewControllers" id="0cR-R4-4wV"/>
                         <segue destination="xqx-sw-AvW" kind="relationship" relationship="viewControllers" id="Zf1-aj-kvM"/>
                     </connections>
                 </tabBarController>
@@ -1292,6 +1598,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v5S-cX-8fM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1578.75" y="-3146.8309859154929"/>
+        </scene>
+        <!--Articoli-->
+        <scene sceneID="g3j-Xt-XJF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kQc-Ni-a4R" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Articoli" id="Ovd-q9-mbB"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ahv-kw-Rbk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="iJB-mP-IOj" kind="relationship" relationship="rootViewController" id="ynE-6e-4s8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eeV-VH-sxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168.75" y="-2451.7605633802818"/>
+        </scene>
+        <!--Recensori-->
+        <scene sceneID="WeJ-T9-e5J">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mIm-fp-SrC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recensori" id="lt4-mH-Jkw"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ldG-CM-T8w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="f86-yO-qSx" kind="relationship" relationship="rootViewController" id="MKS-xJ-ITV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gcz-xm-o18" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4078.125" y="-2086.2676056338028"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0sG-Fu-ckc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X0N-lX-SFI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lg0-Jb-r9L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="c6z-eZ-htQ" kind="relationship" relationship="rootViewController" id="gI9-ZG-x8A"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cGh-te-GPG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168.75" y="-1795.7746478873239"/>
         </scene>
     </scenes>
     <resources>

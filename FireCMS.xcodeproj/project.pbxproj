@@ -24,6 +24,10 @@
 		9D55D4141E943699001688FE /* Autore_ListaArticoliTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55D4131E943699001688FE /* Autore_ListaArticoliTableViewController.swift */; };
 		9D55D4161E94D5CE001688FE /* Chair_RecensioniTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55D4151E94D5CE001688FE /* Chair_RecensioniTableViewController.swift */; };
 		9D55D4181E94D6CF001688FE /* RecensioneClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D55D4171E94D6CF001688FE /* RecensioneClass.swift */; };
+		9D617AEA1E9A2135009EBE63 /* Chair_ArticoliDettagliViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D617AE91E9A2135009EBE63 /* Chair_ArticoliDettagliViewController.swift */; };
+		9D617AEC1E9A2597009EBE63 /* Chair_ArticoliRecensoriAssegnatiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D617AEB1E9A2597009EBE63 /* Chair_ArticoliRecensoriAssegnatiTableViewController.swift */; };
+		9D617AEE1E9A2BDA009EBE63 /* Chair_ArticoliAddRecensoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D617AED1E9A2BDA009EBE63 /* Chair_ArticoliAddRecensoreTableViewController.swift */; };
+		9D617AF01E9A327E009EBE63 /* Chair_RecensioneDettagliViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D617AEF1E9A327E009EBE63 /* Chair_RecensioneDettagliViewController.swift */; };
 		9D95765C1E95A41900749B72 /* Chair_AggiungiAComitatoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95765B1E95A41900749B72 /* Chair_AggiungiAComitatoTableViewController.swift */; };
 		9DEFC2FE1E8E9C5600BFDA42 /* CreaConferenzaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEFC2FD1E8E9C5600BFDA42 /* CreaConferenzaViewController.swift */; };
 		9DEFC3001E8E9CB900BFDA42 /* ConferenzaClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEFC2FF1E8E9CB900BFDA42 /* ConferenzaClass.swift */; };
@@ -55,6 +59,10 @@
 		9D55D4131E943699001688FE /* Autore_ListaArticoliTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Autore_ListaArticoliTableViewController.swift; sourceTree = "<group>"; };
 		9D55D4151E94D5CE001688FE /* Chair_RecensioniTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chair_RecensioniTableViewController.swift; sourceTree = "<group>"; };
 		9D55D4171E94D6CF001688FE /* RecensioneClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecensioneClass.swift; sourceTree = "<group>"; };
+		9D617AE91E9A2135009EBE63 /* Chair_ArticoliDettagliViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chair_ArticoliDettagliViewController.swift; sourceTree = "<group>"; };
+		9D617AEB1E9A2597009EBE63 /* Chair_ArticoliRecensoriAssegnatiTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chair_ArticoliRecensoriAssegnatiTableViewController.swift; sourceTree = "<group>"; };
+		9D617AED1E9A2BDA009EBE63 /* Chair_ArticoliAddRecensoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chair_ArticoliAddRecensoreTableViewController.swift; sourceTree = "<group>"; };
+		9D617AEF1E9A327E009EBE63 /* Chair_RecensioneDettagliViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chair_RecensioneDettagliViewController.swift; sourceTree = "<group>"; };
 		9D95765B1E95A41900749B72 /* Chair_AggiungiAComitatoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chair_AggiungiAComitatoTableViewController.swift; sourceTree = "<group>"; };
 		9DEFC2FD1E8E9C5600BFDA42 /* CreaConferenzaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreaConferenzaViewController.swift; sourceTree = "<group>"; };
 		9DEFC2FF1E8E9CB900BFDA42 /* ConferenzaClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenzaClass.swift; sourceTree = "<group>"; };
@@ -149,7 +157,11 @@
 			children = (
 				9D2915251E8982BF00C170B8 /* Chair_ArticoliTableViewController.swift */,
 				9D95765B1E95A41900749B72 /* Chair_AggiungiAComitatoTableViewController.swift */,
+				9D617AED1E9A2BDA009EBE63 /* Chair_ArticoliAddRecensoreTableViewController.swift */,
 				9DEFC3021E90F87900BFDA42 /* Chair_ComitatoTableViewController.swift */,
+				9D617AEB1E9A2597009EBE63 /* Chair_ArticoliRecensoriAssegnatiTableViewController.swift */,
+				9D617AE91E9A2135009EBE63 /* Chair_ArticoliDettagliViewController.swift */,
+				9D617AEF1E9A327E009EBE63 /* Chair_RecensioneDettagliViewController.swift */,
 				9D55D4151E94D5CE001688FE /* Chair_RecensioniTableViewController.swift */,
 			);
 			name = Chair;
@@ -296,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D29152A1E8BAD2300C170B8 /* SceltaConferenzaViewController.swift in Sources */,
+				9D617AEE1E9A2BDA009EBE63 /* Chair_ArticoliAddRecensoreTableViewController.swift in Sources */,
 				9DEFC3001E8E9CB900BFDA42 /* ConferenzaClass.swift in Sources */,
 				9D55D4141E943699001688FE /* Autore_ListaArticoliTableViewController.swift in Sources */,
 				9D55D4101E9431C2001688FE /* Autore_SottmettiViewController.swift in Sources */,
@@ -304,12 +317,15 @@
 				9DEFC3031E90F87900BFDA42 /* Chair_ComitatoTableViewController.swift in Sources */,
 				9D2915201E867E9600C170B8 /* LoginViewController.swift in Sources */,
 				9D2915261E8982BF00C170B8 /* Chair_ArticoliTableViewController.swift in Sources */,
+				9D617AF01E9A327E009EBE63 /* Chair_RecensioneDettagliViewController.swift in Sources */,
 				9DEFC3081E915D4600BFDA42 /* CustomTableViewCell.swift in Sources */,
 				9DEFC30A1E92885800BFDA42 /* SceltaConferenzaTableViewController.swift in Sources */,
 				9D2915281E89B51900C170B8 /* CustomPaddedLabel.swift in Sources */,
+				9D617AEC1E9A2597009EBE63 /* Chair_ArticoliRecensoriAssegnatiTableViewController.swift in Sources */,
 				9DEFC2FE1E8E9C5600BFDA42 /* CreaConferenzaViewController.swift in Sources */,
 				9D2915241E89734F00C170B8 /* UserInfoViewController.swift in Sources */,
 				9D95765C1E95A41900749B72 /* Chair_AggiungiAComitatoTableViewController.swift in Sources */,
+				9D617AEA1E9A2135009EBE63 /* Chair_ArticoliDettagliViewController.swift in Sources */,
 				9D385DD71E85A501007FA76D /* AppDelegate.swift in Sources */,
 				9D29152C1E8BAE9600C170B8 /* UserClass.swift in Sources */,
 				9D55D4161E94D5CE001688FE /* Chair_RecensioniTableViewController.swift in Sources */,

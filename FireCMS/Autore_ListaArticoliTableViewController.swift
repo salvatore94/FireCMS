@@ -47,24 +47,24 @@ class Autore_ListaArticoliTableViewController: UITableViewController {
     }
     
     func populateListaArticoli(completion: @escaping (([ArticoloClass]) -> Void)) {
-        var lista = [ArticoloClass]()
+        var listaArticoli = [ArticoloClass]()
         var count = 0
-        FIRDatabase.database().reference().child("articoli").observeSingleEvent(of: .value, with: { (snapshot) in
+        FIRDatabase.database().reference().child("articoli").child(conferenza.getUid()).observeSingleEvent(of: .value, with: { (snapshot) in
             count = Int(snapshot.childrenCount)
             
             for child in (snapshot.children) {
                 let snap = child as! FIRDataSnapshot
                 
                 if let value = snap.value as? NSDictionary {
-                    if value["autoreUid"] as! String == utente.getUid()  && value["conferenzaUid"] as! String == conferenza.getUid() {
+                    if value["autoreUid"] as! String == utente.getUid() {
                         let articolo = ArticoloClass(_uid: snap.key, _autoreUid: value["autoreUid"] as! String, _titolo: value["titolo"] as! String, _tema: value["tema"] as! String)
                         print (articolo)
-                        lista.append(articolo)
+                        listaArticoli.append(articolo)
                     }
                 }
                 
-                if lista.count == count {
-                    completion(lista)
+                if listaArticoli.count == count {
+                    completion(listaArticoli)
                 }
             }
         })

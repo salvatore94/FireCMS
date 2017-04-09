@@ -42,6 +42,12 @@ class Chair_AggiungiAComitatoTableViewController: UITableViewController {
         
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
+    
+    
     func populateListaUtenti(completion: @escaping (([UserClass]) -> Void)) {
         var lista = [UserClass]()
         var count = 0
@@ -62,6 +68,12 @@ class Chair_AggiungiAComitatoTableViewController: UITableViewController {
                 }
             }
         })
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //cosa fare alla selezione di una cella
+        conferenza.addRecensore(_toAdd: listaUtenti[indexPath.row].getUid())
+        FIRDatabase.database().reference().child("conferenze").child(conferenza.getUid()).setValue(conferenza.getRecensori(), forKey: "recensori")
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

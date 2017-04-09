@@ -9,11 +9,10 @@
 import UIKit
 import Firebase
 
-var comitato = [UserClass]()
 
 class Chair_ComitatoTableViewController: UITableViewController {
 
-    
+    var comitato = [UserClass]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +39,12 @@ class Chair_ComitatoTableViewController: UITableViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
+    
     @IBAction func aggiungiAComitatoAction(_ sender: Any) {
         self.performSegue(withIdentifier: "AggiungiAComitato", sender: self)
     }
@@ -96,21 +101,18 @@ class Chair_ComitatoTableViewController: UITableViewController {
     
     func popolaComitato() -> [UserClass] {
         var comitato = [UserClass] ()
-        FIRDatabase.database().reference().child("comitati").child(conferenza.getUid()).observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            let values = snapshot.value as! [String]
-            
-            for value in values {
-                FIRDatabase.database().reference().child("utenti").child(value).observeSingleEvent(of: .value, with: { (snapshot) in
-                    let dati = snapshot.value as! NSDictionary
-                    
-                    let recensore = UserClass(_uid: value, _email: dati["email"] as! String, _nome: dati["nome"] as! String, _cognome: dati["cognome"] as! String)
-                    
-                    comitato.append(recensore)
-                }) { (error) in
-                    print(error.localizedDescription)
+        
+        FIRDatabase.database().reference().child("utenti").observeSingleEvent(of: .value, with: { (snapshot) in
+            for recensore in conferenza.getRecensori() {
+                for child in snapshot.children {
+                    if let snap = child as? FIRDataSnapshot {
+                        let val = snap.value as! NSDictionary
+                        if snap.key == recensore {
+                            let user = UserClass(_uid: snap.key, _email: val["email"] as! String, _nome: val["nome"] as! String, _cognome: val["cognome"] as! String)
+                            comitato.append(user)
+                        }
+                    }
                 }
-
             }
         }) { (error) in
             print(error.localizedDescription)

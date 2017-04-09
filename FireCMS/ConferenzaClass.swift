@@ -11,6 +11,10 @@ import Foundation
 class ConferenzaClass {
     private var uid : String
     private var chairUid : String
+    
+    private var recensori : [String]
+    private var autori : [String]
+    
     private var nome : String
     private var tema : String
     private var luogo : String
@@ -23,6 +27,10 @@ class ConferenzaClass {
     init() {
         uid = ""
         chairUid = ""
+        
+        recensori = [String]()
+        autori = [String]()
+        
         nome = ""
         tema = ""
         luogo = ""
@@ -37,6 +45,10 @@ class ConferenzaClass {
     init(_uid: String, _nome: String, _tema: String, _luogo: String, _chairUid: String, _inizio: String, _fine: String) {
         uid = _uid
         chairUid = _chairUid
+        
+        recensori = [String]()
+        autori = [String]()
+        
         nome = _nome
         tema = _tema
         luogo = _luogo
@@ -56,6 +68,21 @@ class ConferenzaClass {
         chairUid = _chairUid
     }
     
+    func setRecensori (_recensori: [String]) -> Void {
+        recensori = _recensori
+    }
+    
+    func setAutori(_autori: [String]) -> Void {
+        autori = _autori
+    }
+    
+    func addRecensore(_toAdd: String) -> Void {
+        recensori.append(_toAdd)
+    }
+    
+    func addAutore(_toAdd: String) -> Void {
+        autori.append(_toAdd)
+    }
     
     func setNomeConferenza(_nome: String) -> Void {
         nome = _nome
@@ -95,6 +122,14 @@ class ConferenzaClass {
     
     func getChairUid() -> String {
         return chairUid
+    }
+    
+    func getRecensori() -> [String] {
+        return recensori
+    }
+    
+    func getAutori() -> [String] {
+        return autori
     }
     
     func getNomeConferenza() -> String {

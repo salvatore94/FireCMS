@@ -68,6 +68,8 @@ class SceltaConferenzaTableViewController: UITableViewController {
                         if let value = snap.value as? NSDictionary {
                         let conf = ConferenzaClass(_uid: snap.key, _nome: value["NomeConferenza"] as! String, _tema: value["TemaConferenza"] as! String, _luogo: value["LuogoConferenza"] as! String, _chairUid: value["ChairUid"] as! String, _inizio: value["DataInizio"] as! String, _fine: value["DataFine"] as! String)
                         
+                            conf.setRecensori(_recensori: value["recensori"] as! [String])
+                            conf.setAutori(_autori: value["autori"] as! [String])
                     lista.append(conf)
                 }
                         
@@ -102,48 +104,31 @@ class SceltaConferenzaTableViewController: UITableViewController {
 
     
     func definisciRuolo() -> Void {
-        let userUid = utente.getUid()
-        let chairUid = conferenza.getChairUid()
-        let conferenceUid = conferenza.getUid()
-        
-        if userUid == chairUid {
+        if utente.getUid() == conferenza.getChairUid() {
             performSegue(withIdentifier: "ChairMainView", sender: self)
             return
         }
         
-      FIRDatabase.database().reference().child("Recensioni").childByAutoId().queryEqual(toValue: conferenceUid, childKey: "idConferenza").observeSingleEvent(of: .value, with: { (snapshot) in
-        for child in snapshot.children {
-            let snap = child as! FIRDataSnapshot
-
-            if let value = snap.value as? NSDictionary {
-                if (value["idRecensore"] as! String) == userUid {
-                    self.performSegue(withIdentifier: "RecensoreMainView", sender: self)
-                    return
-                }
+        for recensore in conferenza.getRecensori() {
+            if utente.getUid() == recensore {
+                performSegue(withIdentifier: "RecensoreMainView", sender: self)
+                return
             }
         }
-      }) { (error) in
-            print(error.localizedDescription)
-    }
-      
-    FIRDatabase.database().reference().child("Articoli").childByAutoId().queryEqual(toValue: conferenceUid, childKey: "idConferenza").observeSingleEvent(of: .value, with: { (snapshot) in
-            for child in snapshot.children {
-                let snap = child as! FIRDataSnapshot
-                
-                if let value = snap.value as? NSDictionary {
-                    if (value["idAutore"] as! String) == userUid {
-                    self.performSegue(withIdentifier: "AutoreMainView", sender: self)
-                    return
-                    }
-                }
+        
+        for autore in conferenza.getAutori() {
+            if utente.getUid() == autore {
+                performSegue(withIdentifier: "AutoreMainView", sender: self)
+                return
             }
-        }) { (error) in
-            print(error.localizedDescription)
         }
     }
     
     func definisciConferenza(_indice: Int) -> Void {
         conferenza.setUid(_uid: listaConferenze[_indice].getUid())
+        conferenza.setChairUid(_chairUid: listaConferenze[_indice].getChairUid())
+        conferenza.setRecensori(_recensori: listaConferenze[_indice].getRecensori())
+        conferenza.setAutori(_autori: listaConferenze[_indice].getAutori())
         conferenza.setNomeConferenza(_nome: listaConferenze[_indice].getNomeConferenza())
         conferenza.setTemaConferenza(_tema: listaConferenze[_indice].getTemaConferenza())
         conferenza.setLuogoConferenza(_luogo: listaConferenze[_indice].getLuogoConferenza())

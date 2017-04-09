@@ -15,10 +15,6 @@ class CreaConferenzaViewController: UIViewController {
     @IBOutlet weak var luogoField: UITextField!
     @IBOutlet weak var inizioField: UITextField!
     @IBOutlet weak var fineField: UITextField!
-
-    
-    let ref = FIRDatabase.database().reference()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,18 +46,18 @@ class CreaConferenzaViewController: UIViewController {
         conferenza.setInizioConferenza(_inizio: inizio)
         conferenza.setFineConferenza(_fine: fine)
         conferenza.setChairUid(_chairUid: (FIRAuth.auth()?.currentUser?.uid)!)
-        
-        let nodo = ref.child("conferenze")
+
         
         let values = ["NomeConferenza" : conferenza.getNomeConferenza(), "TemaConferenza" : conferenza.getTemaConferenza(), "LuogoConferenza" : conferenza.getLuogoConferenza(), "DataInizio" : conferenza.getInizioConferenza(), "DataFine" : conferenza.getFineConferenza(), "ChairUid" : conferenza.getChairUid()]
         
-        let key = nodo.childByAutoId().key
-        nodo.child(key).setValue(values)
+        let key = FIRDatabase.database().reference().child("conferenze").childByAutoId().key
         
-        print(key)
-        utente.addConferenza(_toAdd: key)
+        FIRDatabase.database().reference().child("conferenze").child(key).setValue(values) {
+            conferenza.setUid(_uid: key)
+            utente.addConferenza(_toAdd: key)
         FIRDatabase.database().reference().child("utenti").child((FIRAuth.auth()?.currentUser?.uid)!).child("conferenza").setValue(utente.getListaConferenze() as [String])
-        
+        }
+
         
         performSegue(withIdentifier: "SceltaConferenzaDaCrea", sender: self)
     }

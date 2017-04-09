@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
+var articolo : ArticoloClass?
 
 class Chair_ArticoliTableViewController: UITableViewController {
     
@@ -52,18 +53,16 @@ class Chair_ArticoliTableViewController: UITableViewController {
     func populateListaArticoli(completion: @escaping (([ArticoloClass]) -> Void)) {
         var lista = [ArticoloClass]()
         var count = 0
-        FIRDatabase.database().reference().child("articoli").observeSingleEvent(of: .value, with: { (snapshot) in
+        FIRDatabase.database().reference().child("articoli").child(conferenza.getUid()).observeSingleEvent(of: .value, with: { (snapshot) in
             count = Int(snapshot.childrenCount)
             
             for child in (snapshot.children) {
                 let snap = child as! FIRDataSnapshot
                 
                 if let value = snap.value as? NSDictionary {
-                    if value["conferenzaUid"] as! String == conferenza.getUid() {
                         let articolo = ArticoloClass(_uid: snap.key, _autoreUid: value["autoreUid"] as! String, _titolo: value["titolo"] as! String, _tema: value["tema"] as! String)
                     
                         lista.append(articolo)
-                    }
                 }
                 
                 if lista.count == count {
@@ -95,6 +94,8 @@ class Chair_ArticoliTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //cosa fare alla selezione di una cella
+        articolo = listaArticoli[indexPath.row]
+        performSegue(withIdentifier: "ChairArticoloSelected", sender: self)
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
