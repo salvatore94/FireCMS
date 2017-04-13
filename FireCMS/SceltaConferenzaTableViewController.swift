@@ -66,12 +66,22 @@ class SceltaConferenzaTableViewController: UITableViewController {
                     for child in (snapshot.children) {
                         let snap = child as! FIRDataSnapshot
                         if let value = snap.value as? NSDictionary {
-                        let conf = ConferenzaClass(_uid: snap.key, _nome: value["NomeConferenza"] as! String, _tema: value["TemaConferenza"] as! String, _luogo: value["LuogoConferenza"] as! String, _chairUid: value["ChairUid"] as! String, _inizio: value["DataInizio"] as! String, _fine: value["DataFine"] as! String)
-                        
-                            conf.setRecensori(_recensori: value["recensori"] as! [String])
-                            conf.setAutori(_autori: value["autori"] as! [String])
-                    lista.append(conf)
-                }
+                            
+                                    let conf = ConferenzaClass(_uid: snap.key, _nome: value["NomeConferenza"] as! String, _tema: value["TemaConferenza"] as! String, _luogo: value["LuogoConferenza"] as! String, _chairUid: value["ChairUid"] as! String, _inizio: value["DataInizio"] as! String, _fine: value["DataFine"] as! String)
+                                    
+                                    if let recensori = value["recensori"] as? [String] {
+                                        conf.setRecensori(_recensori: recensori)
+                                    } else {
+                                        conf.setRecensori(_recensori: [String]())
+                                    }
+                                    if let autori = value["autori"] as? [String] {
+                                        conf.setAutori(_autori: autori)
+                                    } else {
+                                        conf.setAutori(_autori: [String]())
+                                    }
+
+                                    lista.append(conf)
+                        }
                         
                 if lista.count == count {
                     completion(lista)

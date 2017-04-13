@@ -97,8 +97,10 @@ class LoginViewController: UIViewController {
             
             //let dd = ["1" : "test", "2" : "test2"]
             // ref.child("utenti").child(user!.uid).child("conferenza").setValue(dd)
-
-            let lista = value["conferenza"] as! [String]
+            var lista = [String]()
+                if let v = value["conferenza"] as? [String] {
+                    lista = v
+                }
             for conference in lista {
                 utente.addConferenza(_toAdd: conference)
             }

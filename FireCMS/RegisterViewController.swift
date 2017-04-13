@@ -69,13 +69,17 @@ class RegisterViewController: UIViewController {
             let uid = user?.uid
             let ref = FIRDatabase.database().reference()
             let nodo_utenti = ref.child("utenti").child(uid!)
-            let values = ["nome" : nome, "cognome" : cognome, "email" :  email]
+            let conf = [String]()
+            let values = ["nome" : nome, "cognome" : cognome, "email" :  email, "conferenze" : conf] as [String : Any]
             
             nodo_utenti.setValue(values)
             
             print("\n Welcome \(user!.email!)")
+            
+            self.performSegue(withIdentifier: "RegisterToLogin", sender: self)
         })
-
+        
+        
     }
 
 }

@@ -48,15 +48,16 @@ class CreaConferenzaViewController: UIViewController {
         conferenza.setChairUid(_chairUid: (FIRAuth.auth()?.currentUser?.uid)!)
 
         
-        let values = ["NomeConferenza" : conferenza.getNomeConferenza(), "TemaConferenza" : conferenza.getTemaConferenza(), "LuogoConferenza" : conferenza.getLuogoConferenza(), "DataInizio" : conferenza.getInizioConferenza(), "DataFine" : conferenza.getFineConferenza(), "ChairUid" : conferenza.getChairUid()]
+        let values = ["NomeConferenza" : conferenza.getNomeConferenza(), "TemaConferenza" : conferenza.getTemaConferenza(), "LuogoConferenza" : conferenza.getLuogoConferenza(), "DataInizio" : conferenza.getInizioConferenza(), "DataFine" : conferenza.getFineConferenza(), "ChairUid" : conferenza.getChairUid()] as [String : Any]
         
         let key = FIRDatabase.database().reference().child("conferenze").childByAutoId().key
         
-        FIRDatabase.database().reference().child("conferenze").child(key).setValue(values) {
+        FIRDatabase.database().reference().child("conferenze").child(key).setValue(values)
             conferenza.setUid(_uid: key)
             utente.addConferenza(_toAdd: key)
-        FIRDatabase.database().reference().child("utenti").child((FIRAuth.auth()?.currentUser?.uid)!).child("conferenza").setValue(utente.getListaConferenze() as [String])
-        }
+            
+        FIRDatabase.database().reference().child("utenti").child((FIRAuth.auth()?.currentUser?.uid)!).child("conferenza").setValue(utente.getListaConferenze() as [Any])
+        
 
         
         performSegue(withIdentifier: "SceltaConferenzaDaCrea", sender: self)

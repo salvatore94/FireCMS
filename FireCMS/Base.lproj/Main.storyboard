@@ -492,7 +492,7 @@
             </objects>
             <point key="canvasLocation" x="2068" y="-2450"/>
         </scene>
-        <!--Chair Comitato Table View Controller-->
+        <!--Comitato-->
         <scene sceneID="idC-Xj-uhO">
             <objects>
                 <tableViewController id="Xjd-n3-Kcf" customClass="Chair_ComitatoTableViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
@@ -515,7 +515,7 @@
                             <outlet property="delegate" destination="Xjd-n3-Kcf" id="wh7-JZ-jrA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="KDA-ah-BPj">
+                    <navigationItem key="navigationItem" title="Comitato" id="KDA-ah-BPj">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="uax-tq-E6b">
                             <connections>
                                 <action selector="aggiungiAComitatoAction:" destination="Xjd-n3-Kcf" id="uCf-Vt-L0O"/>
@@ -577,7 +577,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WqS-Jw-rCD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2436" y="-2183"/>
+            <point key="canvasLocation" x="-2263" y="-2205"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="CGB-ll-BX9">
@@ -749,7 +749,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="l9L-au-9E5" kind="show" identifier="ChairMainView" id="cgN-WT-X33"/>
+                        <segue destination="l9L-au-9E5" kind="presentation" identifier="ChairMainView" id="cgN-WT-X33"/>
                         <segue destination="mE4-SW-WX0" kind="show" identifier="AutoreMainView" id="dPF-KF-GdC"/>
                         <segue destination="l7J-Oh-C0l" kind="show" identifier="RecensoreMainView" id="IbA-1R-Xec"/>
                         <segue destination="GNe-Pw-lYH" kind="show" identifier="CreaNuovaConferenza" id="bht-vq-lH2"/>
@@ -1017,6 +1017,7 @@
                         <outlet property="emailTextField" destination="CJK-h4-0Q8" id="9yZ-61-FHl"/>
                         <outlet property="nomeTextField" destination="8cP-8F-Ifm" id="Nhe-EY-4KS"/>
                         <outlet property="passwordTextField" destination="Xaw-Ni-yeD" id="p2x-On-Vg5"/>
+                        <segue destination="dAl-op-Zs6" kind="show" identifier="RegisterToLogin" id="sXE-tT-IrO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URh-s8-74Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1578,7 +1579,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4Z-Mo-KuX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4130.625" y="-1418.661971830986"/>
+            <point key="canvasLocation" x="-4313" y="-1419"/>
         </scene>
         <!--Comitato-->
         <scene sceneID="X8v-WP-CnN">
@@ -1661,8 +1662,8 @@
         <image name="register_background" width="375" height="667"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="vFv-OB-Grg"/>
         <segue reference="xNW-rN-hsq"/>
-        <segue reference="Ws9-fb-WOe"/>
-        <segue reference="Qkn-Rc-pZe"/>
+        <segue reference="H3H-He-MDi"/>
     </inferredMetricsTieBreakers>
 </document>

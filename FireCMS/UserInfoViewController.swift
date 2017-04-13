@@ -23,6 +23,14 @@ class UserInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let nomeUtente = nome {} else {
+            self.nome = utente.getNome() + " " + utente.getCognome()
+        
+        }
+        if let emailUtente = email {} else {
+            self.email = utente.getEmail()
+        }
+        
         nomeLabel.text = nome
         emailLabel.text = email
         
