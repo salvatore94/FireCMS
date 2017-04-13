@@ -36,10 +36,10 @@ class Autore_SottmettiViewController: UIViewController {
         let value = ["autoreUid" : utente.getUid(), "titolo" : titolo, "tema" : tema]
         let key = FIRDatabase.database().reference().child("articoli").child(conferenza.getUid()).childByAutoId().key
         
-        FIRDatabase.database().reference().child("articoli").child(conferenza.getUid()).child(key).setValue(value) {
+        FIRDatabase.database().reference().child("articoli").child(conferenza.getUid()).child(key).setValue(value)
             conferenza.addAutore(_toAdd: utente.getUid())
-            FIRDatabase.database().reference().child("conferenze").child(conferenza.getUid()).setValue(conferenza.getAutori(), forKeyPath: "autori")
-        }
+            FIRDatabase.database().reference().child("conferenze").child(conferenza.getUid()).child("autori").setValue(conferenza.getAutori())
+        
         
         
 

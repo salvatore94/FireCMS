@@ -34,7 +34,7 @@ class Chair_ArticoliDettagliViewController: UIViewController {
         
         titoloField.text = titolo
         temaField.text = tema
-        autoreField.text = autore.getNome() + " " + autore.getCognome()
+      //  autoreField.text = autore.getNome() + " " + autore.getCognome()
         
     }
 
@@ -56,4 +56,7 @@ class Chair_ArticoliDettagliViewController: UIViewController {
         return autore
     }
 
+    @IBAction func chiudi(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

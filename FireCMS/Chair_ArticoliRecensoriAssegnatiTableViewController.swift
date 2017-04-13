@@ -17,7 +17,11 @@ class Chair_ArticoliRecensoriAssegnatiTableViewController: UITableViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        listaRecensoriAssegnati = populateListaRecensoriAssegnati()
+        self.populateListaRecensoriAssegnati(){ (response) in
+            self.listaRecensoriAssegnati = response
+        }
+        
+        
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -50,8 +54,9 @@ class Chair_ArticoliRecensoriAssegnatiTableViewController: UITableViewController
     }
     
     
-    func populateListaRecensoriAssegnati() -> [String] {
+    func populateListaRecensoriAssegnati(completion: @escaping (([String]) -> Void)) {
         var lista = [String]()
+        var count = 0
         FIRDatabase.database().reference().child("recensioni").child(conferenza.getUid()).observeSingleEvent(of: .value, with: { (snapshot) in
             
             for child in (snapshot.children) {
@@ -65,33 +70,62 @@ class Chair_ArticoliRecensoriAssegnatiTableViewController: UITableViewController
                     lista.append(recensore)
                     }
                 }
-
+                count = count + 1
+                if Int(snapshot.childrenCount) == count {
+                    self.popolaListaUtenti() { (response) in
+                        self.listaUtenti = response
+                    }
+                    completion(lista)
+                }
             }
         })
-        
-        return lista
+
     }
 
-    func popolaListaUtenti() -> [UserClass] {
+    func popolaListaUtenti(completion: @escaping (([UserClass]) -> Void)) {
         var lista = [UserClass]()
+        var count = 0
         
         FIRDatabase.database().reference().child("utenti").observe(.value, with: { (snapshot) in
             for child in snapshot.children {
                 let snap = child as! FIRDataSnapshot
                 for uid in self.listaRecensoriAssegnati {
                     if snap.key == uid {
-                        let value = snap as! NSDictionary
+                        if let value = snap.value as? NSDictionary {
                         let user = UserClass(_uid: snap.key, _email: value["email"] as! String, _nome: value["nome"] as! String, _cognome: value["cognome"] as! String)
                         
                         lista.append(user)
                     }
+                  }
+                }
+                count = count + 1
+                if Int(snapshot.childrenCount) == count {
+                    completion(lista)
                 }
             }
         })
-        
-        return lista
+
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "recensoreInfo", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "recensoreInfo" {
+            let rootcontroller = segue.destination as! UINavigationController
+            let controller = rootcontroller.viewControllers.first as! RecensoreInfoViewController
+
+            let index  = tableView.indexPathForSelectedRow?.row
+            
+            let nome = listaUtenti[index!].getNome() + " " + listaUtenti[index!].getCognome()
+            let email = listaUtenti[index!].getEmail()
+            controller.setNomeLabel(_nome: nome)
+            controller.setEmailLabel(_email: email)
+            
+        }
+    }
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -100,7 +134,7 @@ class Chair_ArticoliRecensoriAssegnatiTableViewController: UITableViewController
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return listaRecensoriAssegnati.count
+        return listaUtenti.count
     }
 
     

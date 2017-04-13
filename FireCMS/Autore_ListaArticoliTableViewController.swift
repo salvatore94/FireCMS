@@ -50,7 +50,6 @@ class Autore_ListaArticoliTableViewController: UITableViewController {
         var listaArticoli = [ArticoloClass]()
         var count = 0
         FIRDatabase.database().reference().child("articoli").child(conferenza.getUid()).observeSingleEvent(of: .value, with: { (snapshot) in
-            count = Int(snapshot.childrenCount)
             
             for child in (snapshot.children) {
                 let snap = child as! FIRDataSnapshot
@@ -62,8 +61,8 @@ class Autore_ListaArticoliTableViewController: UITableViewController {
                         listaArticoli.append(articolo)
                     }
                 }
-                
-                if listaArticoli.count == count {
+                count = count + 1
+                if Int(snapshot.childrenCount) == count {
                     completion(listaArticoli)
                 }
             }

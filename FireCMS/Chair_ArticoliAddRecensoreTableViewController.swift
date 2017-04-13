@@ -24,7 +24,9 @@ class Chair_ArticoliAddRecensoreTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        listaRecensori = popolaComitato()
+        self.popolaComitato(){ (response) in
+            self.listaRecensori = response
+        }
         
         //set up background
         let backgroundImage = UIImage(named: "register_background.png")
@@ -50,12 +52,14 @@ class Chair_ArticoliAddRecensoreTableViewController: UITableViewController {
         
         let value = ["recensoreUid" : recensoreUid, "articoloUid" : articoloUid]
         
-        FIRDatabase.database().reference().child("recensioni").childByAutoId().setValue(value)
+        FIRDatabase.database().reference().child("recensioni").child(conferenza.getUid()).childByAutoId().setValue(value)
+        conferenza.addRecensore(_toAdd: recensoreUid)
     }
 
     
-    func popolaComitato() -> [UserClass] {
-        var comitato = [UserClass] ()
+    func popolaComitato(completion: @escaping (([UserClass]) -> Void)) {
+        var listaComitato = [UserClass] ()
+        var count = conferenza.getRecensori().count
         
         FIRDatabase.database().reference().child("utenti").observeSingleEvent(of: .value, with: { (snapshot) in
             for recensore in conferenza.getRecensori() {
@@ -64,8 +68,12 @@ class Chair_ArticoliAddRecensoreTableViewController: UITableViewController {
                         let val = snap.value as! NSDictionary
                         if snap.key == recensore {
                             let user = UserClass(_uid: snap.key, _email: val["email"] as! String, _nome: val["nome"] as! String, _cognome: val["cognome"] as! String)
-                            comitato.append(user)
+                            listaComitato.append(user)
                         }
+                    }
+                    
+                    if listaComitato.count == count {
+                        completion(listaComitato)
                     }
                 }
             }
@@ -73,8 +81,6 @@ class Chair_ArticoliAddRecensoreTableViewController: UITableViewController {
             print(error.localizedDescription)
         }
         
-        
-        return comitato
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -126,12 +126,7 @@ class SceltaConferenzaTableViewController: UITableViewController {
             }
         }
         
-        for autore in conferenza.getAutori() {
-            if utente.getUid() == autore {
-                performSegue(withIdentifier: "AutoreMainView", sender: self)
-                return
-            }
-        }
+        performSegue(withIdentifier: "AutoreMainView", sender: self)
     }
     
     func definisciConferenza(_indice: Int) -> Void {

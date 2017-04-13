@@ -34,9 +34,7 @@ class UserInfoViewController: UIViewController {
         nomeLabel.text = nome
         emailLabel.text = email
         
-        if close == true {
-            chiudiButton.isHidden = false
-        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

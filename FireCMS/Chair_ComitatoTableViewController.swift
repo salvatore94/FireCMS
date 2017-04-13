@@ -16,8 +16,9 @@ class Chair_ComitatoTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        self.popolaComitato(){ (response) in
+            self.comitato = response
+        }
     }
 
     
@@ -26,7 +27,7 @@ class Chair_ComitatoTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
 
-        comitato = popolaComitato()
+        
         
         //set up background
         let backgroundImage = UIImage(named: "register_background.png")
@@ -100,8 +101,9 @@ class Chair_ComitatoTableViewController: UITableViewController {
     }
     
     
-    func popolaComitato() -> [UserClass] {
-        var comitato = [UserClass] ()
+    func popolaComitato(completion: @escaping (([UserClass]) -> Void)) {
+        var listaComitato = [UserClass] ()
+        var count = conferenza.getRecensori().count
         
         FIRDatabase.database().reference().child("utenti").observeSingleEvent(of: .value, with: { (snapshot) in
             for recensore in conferenza.getRecensori() {
@@ -110,8 +112,12 @@ class Chair_ComitatoTableViewController: UITableViewController {
                         let val = snap.value as! NSDictionary
                         if snap.key == recensore {
                             let user = UserClass(_uid: snap.key, _email: val["email"] as! String, _nome: val["nome"] as! String, _cognome: val["cognome"] as! String)
-                            comitato.append(user)
+                            listaComitato.append(user)
                         }
+                    }
+                    
+                    if listaComitato.count == count {
+                        completion(listaComitato)
                     }
                 }
             }
@@ -119,8 +125,6 @@ class Chair_ComitatoTableViewController: UITableViewController {
             print(error.localizedDescription)
         }
 
-        
-        return comitato
     }
 
 }
