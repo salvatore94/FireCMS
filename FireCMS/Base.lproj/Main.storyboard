@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M7a-ao-c3Y">
-                                <rect key="frame" x="60" y="134" width="200" height="200"/>
+                                <rect key="frame" x="60" y="90" width="200" height="200"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="YVx-Mo-OMP"/>
@@ -40,7 +40,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3p-PV-vwX" userLabel="email" customClass="CustomPaddedLabel" customModule="FireCMS" customModuleProvider="target">
-                                <rect key="frame" x="10" y="470" width="300" height="40"/>
+                                <rect key="frame" x="10" y="426" width="300" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="IAZ-qS-OXX"/>
@@ -59,7 +59,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xx-A7-XUi" userLabel="Nome e Cognome" customClass="CustomPaddedLabel" customModule="FireCMS" customModuleProvider="target">
-                                <rect key="frame" x="10" y="422" width="300" height="40"/>
+                                <rect key="frame" x="10" y="378" width="300" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="2Ap-nM-nBu"/>
@@ -78,7 +78,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button hidden="YES" opaque="NO" alpha="0.50000000596046401" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1Y-We-S2k">
-                                <rect key="frame" x="240" y="72" width="70" height="30"/>
+                                <rect key="frame" x="240" y="28" width="70" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="7x4-pO-uV6"/>
@@ -126,9 +126,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="90C-43-Nc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2179" y="-664"/>
+            <point key="canvasLocation" x="3951" y="-664"/>
         </scene>
-        <!--Recensioni-->
+        <!--Lista Recensioni-->
         <scene sceneID="mvG-3A-mfA">
             <objects>
                 <tableViewController id="xqx-sw-AvW" customClass="Chair_RecensioniTableViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
@@ -151,14 +151,14 @@
                             <outlet property="delegate" destination="xqx-sw-AvW" id="YSX-be-o5k"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Recensioni" id="wZl-zA-uBq"/>
+                    <navigationItem key="navigationItem" title="Lista Recensioni" id="MCk-Vq-EfR"/>
                     <connections>
-                        <segue destination="X0N-lX-SFI" kind="show" identifier="DettagliRecensione" id="azi-SN-QAI"/>
+                        <segue destination="X0N-lX-SFI" kind="presentation" identifier="DettagliRecensione" id="azi-SN-QAI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVA-oB-NgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-853" y="-1901"/>
+            <point key="canvasLocation" x="-1659" y="-1664"/>
         </scene>
         <!--Chair Recensione Dettagli View Controller-->
         <scene sceneID="37q-Jy-wyi">
@@ -268,7 +268,13 @@
                             <constraint firstItem="zwm-au-PUf" firstAttribute="centerX" secondItem="QlD-4l-XWs" secondAttribute="centerX" id="n5l-gB-aZw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Z4c-1W-eCK"/>
+                    <navigationItem key="navigationItem" id="Z4c-1W-eCK">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="done" id="0ox-nI-h41">
+                            <connections>
+                                <action selector="chiudiAction:" destination="c6z-eZ-htQ" id="Zlf-Wj-cJ1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="commentoField" destination="4Sc-HE-r9v" id="1EN-hH-IMb"/>
                         <outlet property="commentoPrivatoField" destination="cMA-X6-8UJ" id="5na-9E-Wcc"/>
@@ -278,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KiA-ls-7TQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1166.25" y="-1795.7746478873239"/>
+            <point key="canvasLocation" x="420" y="-1665"/>
         </scene>
         <!--Articoli-->
         <scene sceneID="ArH-IY-6ve">
@@ -310,7 +316,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vur-ll-zYH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1166.25" y="-2451.7605633802818"/>
+            <point key="canvasLocation" x="-582" y="-2489"/>
         </scene>
         <!--Chair Articoli Recensori Assegnati Table View Controller-->
         <scene sceneID="ReB-p3-DAS">
@@ -349,7 +355,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MR3-8G-n8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5075.625" y="-2086.2676056338028"/>
+            <point key="canvasLocation" x="1983" y="-2126"/>
         </scene>
         <!--Chair Articoli Add Recensore Table View Controller-->
         <scene sceneID="ICr-OJ-c5N">
@@ -377,7 +383,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bf5-J3-F2J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5983.125" y="-2086.2676056338028"/>
+            <point key="canvasLocation" x="3008" y="-2126"/>
         </scene>
         <!--Chair Articoli Dettagli View Controller-->
         <scene sceneID="9lT-bm-7OM">
@@ -481,7 +487,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whd-Se-eH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5075.625" y="-2782.394366197183"/>
+            <point key="canvasLocation" x="1983" y="-2862"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ebc-0k-flA">
@@ -500,7 +506,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMu-8c-367" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2882" y="-2452"/>
+            <point key="canvasLocation" x="421" y="-2489"/>
         </scene>
         <!--Comitato-->
         <scene sceneID="idC-Xj-uhO">
@@ -539,7 +545,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFv-Zc-ha5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-581.25" y="-3146.8309859154929"/>
+            <point key="canvasLocation" x="-624" y="-3995"/>
         </scene>
         <!--Chair AggiungiA Comitato Table View Controller-->
         <scene sceneID="7sg-ze-NuW">
@@ -567,7 +573,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMG-ib-fhq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="421" y="-3143"/>
+            <point key="canvasLocation" x="544" y="-3995"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="RB8-1t-hHP">
@@ -582,12 +588,12 @@
                         <segue destination="X2t-FU-gX3" kind="relationship" relationship="viewControllers" id="H3H-He-MDi"/>
                         <segue destination="7Jg-9g-UUS" kind="relationship" relationship="viewControllers" id="TIu-ac-LIr"/>
                         <segue destination="kQc-Ni-a4R" kind="relationship" relationship="viewControllers" id="0cR-R4-4wV"/>
-                        <segue destination="xqx-sw-AvW" kind="relationship" relationship="viewControllers" id="Zf1-aj-kvM"/>
+                        <segue destination="MLR-LU-dil" kind="relationship" relationship="viewControllers" id="Zf1-aj-kvM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WqS-Jw-rCD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2263" y="-2205"/>
+            <point key="canvasLocation" x="-2766" y="-2490"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="CGB-ll-BX9">
@@ -721,7 +727,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RXO-8h-Lnp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5301" y="-664"/>
+            <point key="canvasLocation" x="-5567" y="-664"/>
         </scene>
         <!--Lista Conferenze-->
         <scene sceneID="oxG-j7-Gf8">
@@ -767,112 +773,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xs2-t0-87V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3133.125" y="-1418.661971830986"/>
-        </scene>
-        <!--Scelta Conferenza View Controller-->
-        <scene sceneID="flL-fS-tYw">
-            <objects>
-                <viewController id="BOK-I6-1EY" customClass="SceltaConferenzaViewController" customModule="FireCMS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y2d-6I-Y28"/>
-                        <viewControllerLayoutGuide type="bottom" id="SWS-TR-eWr"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bXD-Jr-555">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register_background" translatesAutoresizingMaskIntoConstraints="NO" id="W2i-ii-oQg">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
-                            <button opaque="NO" alpha="0.40000000596046448" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7z-mG-2vr">
-                                <rect key="frame" x="162" y="477" width="140" height="35"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="gmM-Ib-LCh"/>
-                                    <constraint firstAttribute="height" constant="35" id="hVY-Nm-Fur"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                <state key="normal" title="Crea Nuova">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="creaNuovaConferenzaAction:" destination="BOK-I6-1EY" eventType="touchUpInside" id="eWj-xo-uhG"/>
-                                    <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="teA-42-E3U"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.40000000596046448" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzR-um-VyW">
-                                <rect key="frame" x="10" y="115" width="300" height="40"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="f50-JD-GnK"/>
-                                    <constraint firstAttribute="height" constant="40" id="o4F-8L-wtA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="conferenza1Action:" destination="BOK-I6-1EY" eventType="touchUpInside" id="81z-6w-lzQ"/>
-                                    <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="coR-ca-Exu"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.40000000596046448" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Upt-6h-mfq">
-                                <rect key="frame" x="10" y="174" width="300" height="40"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="0JS-Rk-KQv"/>
-                                    <constraint firstAttribute="width" constant="300" id="S3d-DV-e4p"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="conferenza2Action:" destination="BOK-I6-1EY" eventType="touchUpInside" id="Xng-gS-5YU"/>
-                                    <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="1Qs-IL-EJY"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="mzR-um-VyW" firstAttribute="top" secondItem="y2d-6I-Y28" secondAttribute="bottom" constant="95" id="0XZ-3Z-TDc"/>
-                            <constraint firstItem="U7z-mG-2vr" firstAttribute="leading" secondItem="bXD-Jr-555" secondAttribute="leadingMargin" constant="146" id="6bK-6f-1LA"/>
-                            <constraint firstItem="W2i-ii-oQg" firstAttribute="width" secondItem="bXD-Jr-555" secondAttribute="width" id="9rt-Rk-rH4"/>
-                            <constraint firstItem="Upt-6h-mfq" firstAttribute="centerX" secondItem="bXD-Jr-555" secondAttribute="centerX" id="FLG-gE-aRf"/>
-                            <constraint firstItem="mzR-um-VyW" firstAttribute="centerX" secondItem="bXD-Jr-555" secondAttribute="centerX" id="Icd-go-vrt"/>
-                            <constraint firstItem="W2i-ii-oQg" firstAttribute="height" secondItem="bXD-Jr-555" secondAttribute="height" id="QNr-WN-14k"/>
-                            <constraint firstItem="Upt-6h-mfq" firstAttribute="top" secondItem="mzR-um-VyW" secondAttribute="bottom" constant="19" id="SPs-Db-iyX"/>
-                            <constraint firstItem="W2i-ii-oQg" firstAttribute="centerY" secondItem="bXD-Jr-555" secondAttribute="centerY" id="eWK-aF-TEa"/>
-                            <constraint firstItem="W2i-ii-oQg" firstAttribute="centerX" secondItem="bXD-Jr-555" secondAttribute="centerX" id="jwB-rR-l1B"/>
-                            <constraint firstItem="SWS-TR-eWr" firstAttribute="top" secondItem="U7z-mG-2vr" secondAttribute="bottom" constant="56" id="rjT-rx-xVK"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="conferenza1" destination="mzR-um-VyW" id="vCE-jy-jFg"/>
-                        <outlet property="conferenza2" destination="Upt-6h-mfq" id="H48-fQ-HcP"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Dh-Q3-C0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4131" y="-649"/>
+            <point key="canvasLocation" x="-3559" y="-664"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="dcY-1q-tko">
@@ -1032,7 +933,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URh-s8-74Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5303" y="357"/>
+            <point key="canvasLocation" x="-5569" y="329"/>
         </scene>
         <!--Crea Conferenza View Controller-->
         <scene sceneID="mtd-eb-ECv">
@@ -1148,7 +1049,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="creaAction:" destination="GNe-Pw-lYH" eventType="touchUpInside" id="3ci-ru-8sB"/>
-                                    <action selector="creaNuovaConferenzaAction:" destination="BOK-I6-1EY" eventType="touchUpInside" id="HRF-nd-Ajb"/>
                                     <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="kua-JI-1z9"/>
                                 </connections>
                             </button>
@@ -1202,7 +1102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zu2-Uh-Tah" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3354" y="13"/>
+            <point key="canvasLocation" x="-4586" y="329"/>
         </scene>
         <!--Sottometti Rivisto-->
         <scene sceneID="glH-Fx-QBB">
@@ -1221,7 +1121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZTS-iE-Xjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1579" y="-187"/>
+            <point key="canvasLocation" x="-1659" y="-191"/>
         </scene>
         <!--Lista Articoli-->
         <scene sceneID="t6M-pO-44X">
@@ -1251,7 +1151,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zlT-J9-IkE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-692" y="-536"/>
+            <point key="canvasLocation" x="-2766" y="200"/>
         </scene>
         <!--Invita-->
         <scene sceneID="x8L-Q9-byh">
@@ -1270,7 +1170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HgR-Kv-CnT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1614" y="1414"/>
+            <point key="canvasLocation" x="-1659" y="1511"/>
         </scene>
         <!--Lista Articoli-->
         <scene sceneID="KQP-LK-Epl">
@@ -1299,7 +1199,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E5O-6Q-MQ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1614" y="713"/>
+            <point key="canvasLocation" x="-1659" y="674"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="l4y-FR-4rv">
@@ -1318,7 +1218,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqU-DC-mcV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2439" y="877"/>
+            <point key="canvasLocation" x="-2766" y="1139"/>
         </scene>
         <!--Sottometti-->
         <scene sceneID="hwz-aJ-6oy">
@@ -1383,7 +1283,6 @@
                                 <connections>
                                     <action selector="caricaFileAction:" destination="VB4-yF-l9T" eventType="touchUpInside" id="yji-67-9qx"/>
                                     <action selector="creaAction:" destination="GNe-Pw-lYH" eventType="touchUpInside" id="yNq-VG-1MS"/>
-                                    <action selector="creaNuovaConferenzaAction:" destination="BOK-I6-1EY" eventType="touchUpInside" id="Jkq-7r-t4D"/>
                                     <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="utZ-0h-8Kd"/>
                                 </connections>
                             </button>
@@ -1403,7 +1302,6 @@
                                 <connections>
                                     <action selector="caricaFileAction:" destination="VB4-yF-l9T" eventType="touchUpInside" id="3vI-Ls-132"/>
                                     <action selector="creaAction:" destination="GNe-Pw-lYH" eventType="touchUpInside" id="aCN-9v-cnZ"/>
-                                    <action selector="creaNuovaConferenzaAction:" destination="BOK-I6-1EY" eventType="touchUpInside" id="ddR-bN-UG6"/>
                                     <action selector="login:" destination="dAl-op-Zs6" eventType="touchUpInside" id="J5q-bk-C4c"/>
                                     <action selector="sottomettiAction:" destination="VB4-yF-l9T" eventType="touchUpInside" id="34Z-dg-MkL"/>
                                 </connections>
@@ -1433,7 +1331,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lId-Ly-jwO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-695.625" y="-1195.7746478873239"/>
+            <point key="canvasLocation" x="-1659" y="-922"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="vzn-sZ-8Iv">
@@ -1453,7 +1351,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Unq-2w-qIE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2438" y="-664"/>
+            <point key="canvasLocation" x="-2766" y="-664"/>
         </scene>
         <!--Info-->
         <scene sceneID="NxT-uJ-eTI">
@@ -1571,7 +1469,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1H-E5-sgZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2179" y="-664"/>
+            <point key="canvasLocation" x="-583" y="-3220"/>
         </scene>
         <!--Recensore Info View Controller-->
         <scene sceneID="cdr-a8-f5J">
@@ -1669,7 +1567,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bh-ce-VGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6351" y="-1296"/>
+            <point key="canvasLocation" x="3008" y="-1420"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="agc-Hn-0yy">
@@ -1687,7 +1585,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4Z-Mo-KuX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4313" y="-1419"/>
+            <point key="canvasLocation" x="-4586" y="-664"/>
         </scene>
         <!--Comitato-->
         <scene sceneID="X8v-WP-CnN">
@@ -1706,7 +1604,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v5S-cX-8fM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1578.75" y="-3146.8309859154929"/>
+            <point key="canvasLocation" x="-1658" y="-3995"/>
         </scene>
         <!--Articoli-->
         <scene sceneID="g3j-Xt-XJF">
@@ -1725,7 +1623,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeV-VH-sxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="168.75" y="-2451.7605633802818"/>
+            <point key="canvasLocation" x="-1579" y="-2489"/>
         </scene>
         <!--Recensori-->
         <scene sceneID="WeJ-T9-e5J">
@@ -1744,7 +1642,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gcz-xm-o18" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4078.125" y="-2086.2676056338028"/>
+            <point key="canvasLocation" x="1191" y="-2126"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0sG-Fu-ckc">
@@ -1762,7 +1660,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cGh-te-GPG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="168.75" y="-1795.7746478873239"/>
+            <point key="canvasLocation" x="-583" y="-1664"/>
         </scene>
         <!--Dettagli-->
         <scene sceneID="kMD-GG-8KU">
@@ -1781,7 +1679,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaT-yS-9nh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4078.125" y="-2782.394366197183"/>
+            <point key="canvasLocation" x="1191" y="-2862"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JOK-uH-2b4">
@@ -1799,7 +1697,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A9O-T9-CMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5076" y="-1296"/>
+            <point key="canvasLocation" x="1983" y="-1419"/>
+        </scene>
+        <!--Recensioni-->
+        <scene sceneID="oJW-RT-ASL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MLR-LU-dil" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recensioni" id="wZl-zA-uBq"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NeL-8t-WuN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xqx-sw-AvW" kind="relationship" relationship="rootViewController" id="jPL-Xa-v8e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O8a-eB-3hd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2764" y="-1663"/>
         </scene>
     </scenes>
     <resources>
@@ -1807,8 +1724,8 @@
         <image name="register_background" width="375" height="667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vFv-OB-Grg"/>
-        <segue reference="xNW-rN-hsq"/>
+        <segue reference="Ws9-fb-WOe"/>
         <segue reference="zAD-A0-6OJ"/>
+        <segue reference="xNW-rN-hsq"/>
     </inferredMetricsTieBreakers>
 </document>

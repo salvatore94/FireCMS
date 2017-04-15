@@ -28,18 +28,20 @@ class Chair_ArticoliDettagliViewController: UIViewController {
 
         let titolo = articolo?.getTitolo()
         let tema = articolo?.getTema()
-        let autoreUid = articolo?.getAutoreUid()
         
-        let autore = trovaAutore(_uid: autoreUid!)
+        
         
         titoloField.text = titolo
         temaField.text = tema
-      //  autoreField.text = autore.getNome() + " " + autore.getCognome()
+        
+        //let autoreUid = articolo?.getAutoreUid()
+        //let autore = trovaAutore(_uid: autoreUid!)
+        //autoreField.text = autore.getNome() + " " + autore.getCognome()
         
     }
 
     func trovaAutore(_uid: String) -> UserClass {
-        var autore = UserClass()
+        let autore = UserClass()
         FIRDatabase.database().reference().child("utenti").observe(.value, with: { (snapshot) in
             for child in snapshot.children {
                 let snap = child as! FIRDataSnapshot

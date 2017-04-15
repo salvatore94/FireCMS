@@ -58,7 +58,7 @@ class Chair_AggiungiAComitatoTableViewController: UITableViewController {
                 let snap = child as! FIRDataSnapshot
                 
                 if let value = snap.value as? NSDictionary {
-                        let user = UserClass(_uid: snap.key as! String, _email: value["email"] as! String, _nome: value["nome"] as! String, _cognome: value["cognome"] as! String)
+                        let user = UserClass(_uid: snap.key , _email: value["email"] as! String, _nome: value["nome"] as! String, _cognome: value["cognome"] as! String)
                         
                         lista.append(user)
                 }

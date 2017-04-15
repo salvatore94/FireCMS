@@ -103,7 +103,7 @@ class Chair_ComitatoTableViewController: UITableViewController {
     
     func popolaComitato(completion: @escaping (([UserClass]) -> Void)) {
         var listaComitato = [UserClass] ()
-        var count = conferenza.getRecensori().count
+        let count = conferenza.getRecensori().count
         
         FIRDatabase.database().reference().child("utenti").observeSingleEvent(of: .value, with: { (snapshot) in
             for recensore in conferenza.getRecensori() {

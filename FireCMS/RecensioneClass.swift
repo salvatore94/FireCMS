@@ -34,13 +34,13 @@ class RecensioneClass {
         commentoPrivato = ""
     }
     
-    init (_uid: String, _recensoreUid: String, _articoloUid: String, _voto: Double, _commento: String, _commentoPrivato: String) {
+    init (_uid: String, _recensoreUid: String, _articoloUid: String) {
         uid = _uid
         recensoreUid = _recensoreUid
         articoloUid = _articoloUid
-        voto = _voto
-        commento = _commento
-        commentoPrivato = _commentoPrivato
+        voto = 0
+        commento = ""
+        commentoPrivato = ""
     }
     
     func setUid(_uid: String) -> Void {

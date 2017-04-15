@@ -68,22 +68,24 @@ class LoginViewController: UIViewController {
             return
         }
         FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
-            guard error == nil else {
-                let alertVC = UIAlertController(title: "Errore", message: "Errore di login", preferredStyle: UIAlertControllerStyle.alert)
-                let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
-                    print("ok")
-                })
-                alertVC.addAction(okButton)
-                self.present(alertVC, animated: true, completion: nil)
-                return
+            if error == nil {
+                self.popolateUserAccount()
+            } else {
+                print(error as Any)
+                self.presentAlertVC()
             }
         }
-            
-           self.popolateUserAccount()
-            // Eseguo il segue all'interno della funzione popolateUserAccount() in modo da poter 
-            // aspettare che la chiamata asincrona venga portata a termine
+    
     }
     
+    func presentAlertVC () {
+        let alertVC = UIAlertController(title: "Errore", message: "Errore di login", preferredStyle: UIAlertControllerStyle.alert)
+        let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+            print("ok")
+        })
+        alertVC.addAction(okButton)
+        self.present(alertVC, animated: true, completion: nil)
+    }
     
     func popolateUserAccount() {
 

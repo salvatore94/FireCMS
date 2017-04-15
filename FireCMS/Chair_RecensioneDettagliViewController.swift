@@ -28,6 +28,9 @@ class Chair_RecensioneDettagliViewController: UIViewController {
         commentoPrivatoField.text = recensione.getCommentoPrivato()
     }
 
+    @IBAction func chiudiAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func titoloArticolo() -> String {
         var titolo = ""

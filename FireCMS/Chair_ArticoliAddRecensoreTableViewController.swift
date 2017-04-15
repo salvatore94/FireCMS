@@ -50,7 +50,7 @@ class Chair_ArticoliAddRecensoreTableViewController: UITableViewController {
         let recensoreUid = listaRecensori[indexPath.row].getUid()
         let articoloUid = articolo?.getUid()
         
-        let value = ["recensoreUid" : recensoreUid, "articoloUid" : articoloUid]
+        let value = ["recensoreUid" : recensoreUid, "articoloUid" : articoloUid as Any, "voto" : 0.0, "commento" : "", "commentoPrivato" : ""] as [String : Any]
         
         FIRDatabase.database().reference().child("recensioni").child(conferenza.getUid()).childByAutoId().setValue(value)
         conferenza.addRecensore(_toAdd: recensoreUid)
@@ -59,7 +59,7 @@ class Chair_ArticoliAddRecensoreTableViewController: UITableViewController {
     
     func popolaComitato(completion: @escaping (([UserClass]) -> Void)) {
         var listaComitato = [UserClass] ()
-        var count = conferenza.getRecensori().count
+        let count = conferenza.getRecensori().count
         
         FIRDatabase.database().reference().child("utenti").observeSingleEvent(of: .value, with: { (snapshot) in
             for recensore in conferenza.getRecensori() {

@@ -20,9 +20,7 @@ class Chair_ArticoliRecensoriAssegnatiTableViewController: UITableViewController
         self.populateListaRecensoriAssegnati(){ (response) in
             self.listaRecensoriAssegnati = response
         }
-        
-        
-        
+
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
@@ -63,7 +61,7 @@ class Chair_ArticoliRecensoriAssegnatiTableViewController: UITableViewController
                 let snap = child as! FIRDataSnapshot
                 
                 if let value = snap.value as? NSDictionary {
-                    if value["articoloUid"] as! String == articolo?.getUid() {
+                    if (value["articoloUid"] as! String) == articolo?.getUid() {
                     let recensore = value["recensoreUid"] as! String
                         
                         
@@ -141,11 +139,16 @@ class Chair_ArticoliRecensoriAssegnatiTableViewController: UITableViewController
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recensoriCell", for: indexPath)
 
+        cell.layer.cornerRadius = 10
+        
         cell.textLabel?.text = listaUtenti[indexPath.row].getNome() + " " + listaUtenti[indexPath.row].getCognome()
 
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
+    }
 
     
     // Override to support conditional editing of the table view.

@@ -18,7 +18,10 @@ class Chair_RecensioniTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.listaRecensioni = populateListaRecensioni()
+        self.populateListaRecensioni(completion: { (response) in
+            self.listaRecensioni = response
+        }
+)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -45,26 +48,37 @@ class Chair_RecensioniTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    func populateListaRecensioni() -> [RecensioneClass] {
+    func populateListaRecensioni(completion: @escaping (([RecensioneClass]) -> Void)) {
         var lista = [RecensioneClass]()
+        var count = 0
         FIRDatabase.database().reference().child("recensioni").child(conferenza.getUid()).observeSingleEvent(of: .value, with: { (snapshot) in
+            count = Int(snapshot.childrenCount)
             
             for child in (snapshot.children) {
                 let snap = child as! FIRDataSnapshot
                 
                 if let value = snap.value as? NSDictionary {
-                        let recensione = RecensioneClass(_uid: snap.key, _recensoreUid: value["recensoreUid"] as! String, _articoloUid: value["articoloUid"] as! String, _voto: value["voto"] as! Double, _commento: value["commento"] as! String)
+                        let recensione = RecensioneClass(_uid: snap.key, _recensoreUid: value["recensoreUid"] as! String, _articoloUid: value["articoloUid"] as! String)
                     
+                            if value["voto"] as! Double != 0 {
+                                recensione.setVoto(_voto: value["voto"] as! Double)
+                            }
+                            if value["commento"] as! String != "" {
+                                recensione.setCommento(_commento: value["commento"] as! String)
+                            }
                             if value["commentoPrivato"] as! String != "" {
                                 recensione.setCommentoPrivato(_commentoPrivato: value["commentoPrivato"] as! String)
                             }
                     
                         lista.append(recensione)
                 }
+                
+                if lista.count == count {
+                    completion(lista)
+                }
             }
         })
-        
-        return lista
+
     }
     
     // MARK: - Table view data source
@@ -79,18 +93,18 @@ class Chair_RecensioniTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Chair_listaArticoliTableCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recensioniTableCell", for: indexPath)
         
         cell.layer.cornerRadius = 10
         
-        cell.textLabel?.text = listaRecensioni[indexPath.row].getArticoloUid() + " :  \(listaRecensioni[indexPath.row].getVoto())"
-        
+        cell.textLabel?.text = listaRecensioni[indexPath.row].getUid()
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //cosa fare alla selezione di una cella
+        
         recensione = listaRecensioni[indexPath.row]
         
         performSegue(withIdentifier: "DettagliRecensione", sender: self)
