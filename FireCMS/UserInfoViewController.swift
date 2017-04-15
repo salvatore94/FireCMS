@@ -56,4 +56,5 @@ class UserInfoViewController: UIViewController {
     @IBAction func chiudiAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+ 
 }

@@ -26,6 +26,7 @@ class Chair_ArticoliAddRecensoreTableViewController: UITableViewController {
         
         self.popolaComitato(){ (response) in
             self.listaRecensori = response
+            self.tableView.reloadData()
         }
         
         //set up background
@@ -94,13 +95,16 @@ class Chair_ArticoliAddRecensoreTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recensoreCell", for: indexPath)
-
+        cell.layer.cornerRadius = 10
+        
         cell.textLabel?.text = listaRecensori[indexPath.row]
 .getNome() + " " + listaRecensori[indexPath.row].getCognome()
         return cell
     }
 
-
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
+    }
 
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

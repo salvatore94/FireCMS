@@ -23,6 +23,7 @@ class Chair_ArticoliTableViewController: UITableViewController {
         
         self.populateListaArticoli(){ (response) in
             self.listaArticoli = response
+            self.tableView.reloadData()
         }
         
         tableView.dataSource = self
@@ -44,11 +45,6 @@ class Chair_ArticoliTableViewController: UITableViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
 
     }
- 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
-    }
     
     func populateListaArticoli(completion: @escaping (([ArticoloClass]) -> Void)) {
         var lista = [ArticoloClass]()
@@ -67,6 +63,7 @@ class Chair_ArticoliTableViewController: UITableViewController {
                 
                 if lista.count == count {
                     completion(lista)
+                    
                 }
             }
         })
@@ -76,6 +73,10 @@ class Chair_ArticoliTableViewController: UITableViewController {
         return 1
     }
 
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // la dimensione della tabella articoli
         return listaArticoli.count

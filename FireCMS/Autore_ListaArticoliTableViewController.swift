@@ -20,13 +20,13 @@ class Autore_ListaArticoliTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.separatorStyle = .none
         
-        super.tableView.reloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.populateListaArticoli(){ (response) in
             self.listaArticoli = response
+            self.tableView.reloadData()
         }
         
         //set up background

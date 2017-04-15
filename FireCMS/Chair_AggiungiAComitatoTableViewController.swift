@@ -18,6 +18,7 @@ class Chair_AggiungiAComitatoTableViewController: UITableViewController {
 
         self.populateListaUtenti(){ (response) in
             self.listaUtenti = response
+            self.tableView.reloadData()
          }
         
         tableView.dataSource = self
@@ -41,12 +42,6 @@ class Chair_AggiungiAComitatoTableViewController: UITableViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
-    }
-    
     
     func populateListaUtenti(completion: @escaping (([UserClass]) -> Void)) {
         var lista = [UserClass]()
@@ -89,6 +84,10 @@ class Chair_AggiungiAComitatoTableViewController: UITableViewController {
         lista.append(conferenza.getUid())
         value = lista
         FIRDatabase.database().reference().child("utenti").child(listaUtenti[indexPath.row].getUid()).child("conferenza").setValue(value)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

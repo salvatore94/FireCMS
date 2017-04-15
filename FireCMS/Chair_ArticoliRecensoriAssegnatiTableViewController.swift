@@ -19,6 +19,10 @@ class Chair_ArticoliRecensoriAssegnatiTableViewController: UITableViewController
         
         self.populateListaRecensoriAssegnati(){ (response) in
             self.listaRecensoriAssegnati = response
+            self.popolaListaUtenti(completion: { (response1) in
+                self.listaUtenti = response1
+                self.tableView.reloadData()
+            })
         }
 
         tableView.dataSource = self
@@ -39,11 +43,6 @@ class Chair_ArticoliRecensoriAssegnatiTableViewController: UITableViewController
         // no lines where there aren't cells
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
     }
     
     @IBAction func addRecensoreAction(_ sender: Any) {
@@ -70,9 +69,6 @@ class Chair_ArticoliRecensoriAssegnatiTableViewController: UITableViewController
                 }
                 count = count + 1
                 if Int(snapshot.childrenCount) == count {
-                    self.popolaListaUtenti() { (response) in
-                        self.listaUtenti = response
-                    }
                     completion(lista)
                 }
             }

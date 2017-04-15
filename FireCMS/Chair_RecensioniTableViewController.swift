@@ -20,6 +20,7 @@ class Chair_RecensioniTableViewController: UITableViewController {
         
         self.populateListaRecensioni(completion: { (response) in
             self.listaRecensioni = response
+            self.tableView.reloadData()
         }
 )
         
@@ -41,11 +42,6 @@ class Chair_RecensioniTableViewController: UITableViewController {
         // no lines where there aren't cells
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
     }
     
     func populateListaRecensioni(completion: @escaping (([RecensioneClass]) -> Void)) {
@@ -87,6 +83,10 @@ class Chair_RecensioniTableViewController: UITableViewController {
         return 1
     }
 
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // la dimensione della tabella articoli
         return listaRecensioni.count

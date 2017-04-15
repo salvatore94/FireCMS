@@ -17,6 +17,7 @@ class SceltaConferenzaTableViewController: UITableViewController {
         super.viewDidLoad()
         self.populateListaConferenze(){ (response) in
             self.listaConferenze = response
+            self.tableView.reloadData()
         }
         
         tableView.dataSource = self
@@ -45,11 +46,6 @@ class SceltaConferenzaTableViewController: UITableViewController {
         blurView.frame = imageView.bounds
         imageView.addSubview(blurView)
         */
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
     }
     
     @IBAction func creaNuovaConferenzaAction(_ sender: Any) {
@@ -149,9 +145,9 @@ class SceltaConferenzaTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listaConferenze.count
     }
-
+    
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = .clear
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

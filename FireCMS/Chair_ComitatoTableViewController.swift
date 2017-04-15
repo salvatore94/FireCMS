@@ -18,6 +18,7 @@ class Chair_ComitatoTableViewController: UITableViewController {
         super.viewDidLoad()
         self.popolaComitato(){ (response) in
             self.comitato = response
+            self.tableView.reloadData()
         }
     }
 
@@ -42,10 +43,6 @@ class Chair_ComitatoTableViewController: UITableViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
-    }
     
     @IBAction func aggiungiAComitatoAction(_ sender: Any) {
         self.performSegue(withIdentifier: "AggiungiAComitato", sender: self)
@@ -65,6 +62,7 @@ class Chair_ComitatoTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ComitatoCell", for: indexPath)
+        cell.layer.cornerRadius = 10
         
         let nome = comitato[indexPath.row].getNome() + " " + comitato[indexPath.row].getCognome()
         
