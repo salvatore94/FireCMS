@@ -40,7 +40,6 @@ class Chair_ComitatoTableViewController: UITableViewController {
         
         // no lines where there aren't cells
         tableView.tableFooterView = UIView(frame: CGRect.zero)
-        
     }
     
     
@@ -80,8 +79,9 @@ class Chair_ComitatoTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "recensoreInfo" {
-            let controller = segue.destination as! UserInfoViewController
-                controller.enableChiudi()
+            let navController = segue.destination as! UINavigationController
+            let controller = navController.childViewControllers.first as! UserInfoViewController
+                //controller.enableChiudi()
                 let index  = tableView.indexPathForSelectedRow?.row
             
                 let nome = comitato[index!].getNome() + " " + comitato[index!].getCognome()

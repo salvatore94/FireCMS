@@ -53,20 +53,20 @@ class Chair_ArticoliRecensoriAssegnatiTableViewController: UITableViewController
     
     func populateListaRecensoriAssegnati(completion: @escaping (([String]) -> Void)) {
         var lista = [String]()
+        let uid = articolo.getUid()
         var count = 0
+        
         FIRDatabase.database().reference().child("recensioni").child(conferenza.getUid()).observeSingleEvent(of: .value, with: { (snapshot) in
             
             for child in (snapshot.children) {
                 let snap = child as! FIRDataSnapshot
                 
                 if let value = snap.value as? NSDictionary {
-                    if (value["articoloUid"] as! String) == articolo?.getUid() {
-                    let recensore = value["recensoreUid"] as! String
-                        
-                        
-                    lista.append(recensore)
+                    if (value["articoloUid"] as! String) == uid {
+                        lista.append(value["recensoreUid"] as! String)
                     }
                 }
+                
                 count = count + 1
                 if Int(snapshot.childrenCount) == count {
                     completion(lista)
@@ -78,15 +78,16 @@ class Chair_ArticoliRecensoriAssegnatiTableViewController: UITableViewController
 
     func popolaListaUtenti(completion: @escaping (([UserClass]) -> Void)) {
         var lista = [UserClass]()
+        let recensori = self.listaRecensoriAssegnati
         var count = 0
         
         FIRDatabase.database().reference().child("utenti").observe(.value, with: { (snapshot) in
             for child in snapshot.children {
                 let snap = child as! FIRDataSnapshot
-                for uid in self.listaRecensoriAssegnati {
+                for uid in recensori {
                     if snap.key == uid {
                         if let value = snap.value as? NSDictionary {
-                        let user = UserClass(_uid: snap.key, _email: value["email"] as! String, _nome: value["nome"] as! String, _cognome: value["cognome"] as! String)
+                            let user = UserClass(_uid: snap.key, _email: value["email"] as! String, _nome: value["nome"] as! String, _cognome: value["cognome"] as! String)
                         
                         lista.append(user)
                     }

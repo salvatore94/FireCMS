@@ -49,7 +49,7 @@ class Chair_ArticoliAddRecensoreTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recensoreUid = listaRecensori[indexPath.row].getUid()
-        let articoloUid = articolo?.getUid()
+        let articoloUid = articolo.getUid()
         
         let value = ["recensoreUid" : recensoreUid, "articoloUid" : articoloUid as Any, "voto" : 0.0, "commento" : "", "commentoPrivato" : ""] as [String : Any]
         
@@ -59,7 +59,7 @@ class Chair_ArticoliAddRecensoreTableViewController: UITableViewController {
 
     
     func popolaComitato(completion: @escaping (([UserClass]) -> Void)) {
-        var listaComitato = [UserClass] ()
+        var listaComitato = [UserClass]()
         let count = conferenza.getRecensori().count
         
         FIRDatabase.database().reference().child("utenti").observeSingleEvent(of: .value, with: { (snapshot) in

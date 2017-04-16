@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-var articolo : ArticoloClass?
+var articolo = ArticoloClass()
 
 class Chair_ArticoliTableViewController: UITableViewController {
     
@@ -95,7 +95,11 @@ class Chair_ArticoliTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //cosa fare alla selezione di una cella
-        articolo = listaArticoli[indexPath.row]
+        articolo.setUid(_uid: listaArticoli[indexPath.row].getUid())
+        articolo.setTitolo(_titolo: listaArticoli[indexPath.row].getTitolo())
+        articolo.setAutoreUid(_autoreUid: listaArticoli[indexPath.row].getAutoreUid())
+        articolo.setTema(_tema: listaArticoli[indexPath.row].getTema())
+        
         performSegue(withIdentifier: "ChairArticoloSelected", sender: self)
     }
     
