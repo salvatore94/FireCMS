@@ -126,11 +126,10 @@
 		9D385DD51E85A501007FA76D /* FireCMS */ = {
 			isa = PBXGroup;
 			children = (
-				9DEFC3061E910A2700BFDA42 /* Classes */,
 				9D385DD61E85A501007FA76D /* AppDelegate.swift */,
+				9DEFC3061E910A2700BFDA42 /* Classes */,
 				9D2915231E89734F00C170B8 /* UserInfoViewController.swift */,
 				9D0A7BB31EA025BB00CDFCB2 /* RecensoreInfoViewController.swift */,
-				9D2915271E89B51900C170B8 /* CustomPaddedLabel.swift */,
 				9DEFC3091E92885700BFDA42 /* SceltaConferenzaTableViewController.swift */,
 				9D55D40E1E943198001688FE /* Autore */,
 				9DEFC3011E90F84F00BFDA42 /* Chair */,
@@ -188,6 +187,7 @@
 				9D55D4171E94D6CF001688FE /* RecensioneClass.swift */,
 				9DEFC2FF1E8E9CB900BFDA42 /* ConferenzaClass.swift */,
 				9D55D4111E9433B5001688FE /* ArticoloClass.swift */,
+				9D2915271E89B51900C170B8 /* CustomPaddedLabel.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
