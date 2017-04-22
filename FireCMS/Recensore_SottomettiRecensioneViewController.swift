@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class Recensore_SottomettiRecensioneViewController: UIViewController {
+class Recensore_SottomettiRecensioneViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var titoloArticoloLabel: CustomPaddedLabel!
     
@@ -23,8 +23,17 @@ class Recensore_SottomettiRecensioneViewController: UIViewController {
         super.viewDidLoad()
 
         titoloArticoloLabel.text = articoloDaRecensire?.getTitolo()
+        
+        votoField.delegate = self
+        commentoField.delegate = self
+        commentoPrivatoField.delegate = self
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
     @IBAction func sottomettiAction(_ sender: Any) {
         guard let voto =  Double(votoField.text!) else {
             return
@@ -37,7 +46,7 @@ class Recensore_SottomettiRecensioneViewController: UIViewController {
         
         FIRDatabase.database().reference().child("recensioni").child(conferenza.getUid()).child((recensioneArticolo?.getUid())!).removeValue()
         
-        let value = ["recensoreUid" : recensioneArticolo?.getRecensoreUid(), "articoloUid" : recensioneArticolo?.getArticoloUid(), "voto" : recensioneArticolo?.getVoto(), "commento" : recensioneArticolo?.getCommento(), "commentoPrivato" : recensioneArticolo?.getCommentoPrivato()] as [String : Any]
+        let value = ["recensoreUid" : recensioneArticolo?.getRecensoreUid() as Any, "articoloUid" : recensioneArticolo?.getArticoloUid() as Any, "voto" : recensioneArticolo?.getVoto() as Any, "commento" : recensioneArticolo?.getCommento() as Any, "commentoPrivato" : recensioneArticolo?.getCommentoPrivato() as Any] as [String : Any]
         
         FIRDatabase.database().reference().child("recensioni").child(conferenza.getUid()).child((recensioneArticolo?.getUid())!).setValue(value)
     }

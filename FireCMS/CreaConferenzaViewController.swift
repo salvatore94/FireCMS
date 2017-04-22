@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class CreaConferenzaViewController: UIViewController {
+class CreaConferenzaViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nomeField: UITextField!
     @IBOutlet weak var temaField: UITextField!
     @IBOutlet weak var luogoField: UITextField!
@@ -19,10 +19,20 @@ class CreaConferenzaViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        nomeField.delegate = self
+        temaField.delegate = self
+        luogoField.delegate = self
+        inizioField.delegate = self
+        fineField.delegate = self
+        
     }
 
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
     @IBAction func creaAction(_ sender: Any) {
         guard let nome = nomeField.text else {
             return

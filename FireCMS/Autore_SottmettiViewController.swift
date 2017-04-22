@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class Autore_SottmettiViewController: UIViewController {
+class Autore_SottmettiViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var titoloTextField: UITextField!
     @IBOutlet weak var temaTextField: UITextField!
@@ -17,9 +17,15 @@ class Autore_SottmettiViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        titoloTextField.delegate = self
+        temaTextField.delegate = self
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 
     @IBAction func sottomettiAction(_ sender: Any) {
         guard let titolo = titoloTextField.text else {

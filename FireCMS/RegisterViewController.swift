@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseDatabase
 
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nomeTextField: UITextField!
     @IBOutlet weak var cognomeTextField: UITextField!
@@ -26,9 +26,18 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        nomeTextField.delegate = self
+        cognomeTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        confermaPasswordTextField.delegate = self
+        
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 
     @IBAction func registerAction(_ sender: Any) {
         guard  let nome = nomeTextField.text else {

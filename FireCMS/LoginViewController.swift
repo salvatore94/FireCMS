@@ -14,7 +14,7 @@ var utente = UserClass()
 var conferenza = ConferenzaClass()
 
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var passwortTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -24,9 +24,15 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        passwortTextField.delegate = self
+        emailTextField.delegate = self
 
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
     
     @IBAction func register(_ sender: Any) {
         guard let email = emailTextField.text else {
