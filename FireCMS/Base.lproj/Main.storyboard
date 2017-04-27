@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -695,6 +696,7 @@
                             <imageView userInteractionEnabled="NO" alpha="0.94999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="HtF-95-DFm">
                                 <rect key="frame" x="14" y="81" width="292" height="130"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="HtF-95-DFm" secondAttribute="height" multiplier="146:65" id="KcQ-Qt-gfu"/>
                                     <constraint firstAttribute="height" constant="130" id="eLp-C2-wcK"/>
                                     <constraint firstAttribute="width" constant="292" id="vcC-U9-TCU"/>
                                 </constraints>
@@ -702,6 +704,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.84999999999999998" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="TnI-jE-JBW" firstAttribute="top" secondItem="XVp-ls-a8R" secondAttribute="bottom" constant="34" id="28B-EE-0e4"/>
                             <constraint firstItem="XVp-ls-a8R" firstAttribute="centerX" secondItem="yTx-oU-Rlf" secondAttribute="centerX" constant="-1.5" id="3BB-Sj-ooq"/>
                             <constraint firstItem="HtF-95-DFm" firstAttribute="centerX" secondItem="yTx-oU-Rlf" secondAttribute="centerX" id="70k-tS-ztR"/>
                             <constraint firstItem="8s4-ZS-gTN" firstAttribute="leading" secondItem="yTx-oU-Rlf" secondAttribute="trailing" constant="-141" id="9Pu-Hi-OZA"/>
@@ -710,6 +713,7 @@
                             <constraint firstItem="8s4-ZS-gTN" firstAttribute="width" secondItem="TnI-jE-JBW" secondAttribute="width" id="CxD-1c-pTm"/>
                             <constraint firstItem="8s4-ZS-gTN" firstAttribute="height" secondItem="TnI-jE-JBW" secondAttribute="height" id="GTs-N4-E5v"/>
                             <constraint firstItem="yTx-oU-Rlf" firstAttribute="centerY" secondItem="wlL-NX-ckX" secondAttribute="centerY" id="IlS-iu-wrs"/>
+                            <constraint firstItem="2jF-yo-Vt8" firstAttribute="top" secondItem="HtF-95-DFm" secondAttribute="bottom" constant="101" id="QA1-zK-QaK"/>
                             <constraint firstItem="2jF-yo-Vt8" firstAttribute="centerX" secondItem="yTx-oU-Rlf" secondAttribute="centerX" constant="-1.5" id="Qao-Pd-ecz"/>
                             <constraint firstAttribute="bottom" secondItem="XVp-ls-a8R" secondAttribute="bottom" constant="128" id="Qq0-hz-uxQ"/>
                             <constraint firstItem="XVp-ls-a8R" firstAttribute="top" secondItem="2jF-yo-Vt8" secondAttribute="bottom" constant="8" symbolic="YES" id="VuU-a4-vX1"/>

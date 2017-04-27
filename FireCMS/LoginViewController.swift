@@ -24,15 +24,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        passwortTextField.delegate = self
         emailTextField.delegate = self
+        passwortTextField.delegate = self
+        
+        emailTextField.tag = 0
+        passwortTextField.tag = 1
 
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.tag == 0 {
+            textField.superview?.viewWithTag(1)?.becomeFirstResponder()
+            return false
+        }
+        
         self.view.endEditing(true)
+        
         return true
     }
+    
     
     @IBAction func register(_ sender: Any) {
         guard let email = emailTextField.text else {
@@ -84,6 +97,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     }
     
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardsize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardsize.height
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) -> Void {
+        if let keyboardsize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y += keyboardsize.height
+            }
+         }
+    }
     func presentAlertVC () {
         let alertVC = UIAlertController(title: "Errore", message: "Errore di login", preferredStyle: UIAlertControllerStyle.alert)
         let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
